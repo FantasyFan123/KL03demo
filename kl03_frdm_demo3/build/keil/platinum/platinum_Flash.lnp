@@ -1,0 +1,27 @@
+--cpu Cortex-M0+
+".\platinum.o"
+".\startup_mkl03z4.o"
+".\uif.o"
+".\alloc.o"
+".\assert.o"
+".\io.o"
+".\memtest.o"
+".\queue.o"
+".\stdlib.o"
+".\nmi_isr_handler.o"
+".\start.o"
+".\sysinit.o"
+".\arm_cm0.o"
+".\uart.o"
+".\rcm.o"
+".\retarget.o"
+".\serial.o"
+".\mcg_lite.o"
+".\lptmr.o"
+".\hal_dev_mma8451.o"
+".\hal_i2c.o"
+".\smc.o"
+--library_type=microlib --strict --scatter ".\platinum_Flash.sct"
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\platinum_Flash.map" -o .\platinum_Flash.axf

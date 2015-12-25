@@ -1,0 +1,13 @@
+del *.o
+del *.d
+del *.crf
+del *.i
+del *.__i
+del *.lst
+del *.dep
+del *.map
+del *.lnp
+del *.htm
+del *.axf
+del *.Administrator
+del *.s19

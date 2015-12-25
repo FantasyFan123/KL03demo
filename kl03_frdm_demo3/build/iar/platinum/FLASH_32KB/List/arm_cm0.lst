@@ -1,0 +1,567 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V7.40.2.8542/W32 for ARM        30/Nov/2015  13:44:21
+# Copyright 1999-2015 IAR Systems AB.
+#
+#    Cpu mode     =  thumb
+#    Endian       =  little
+#    Source file  =  C:\Users\B55335\Desktop\kl03-frdm-demo\src\cpu\arm_cm0.c
+#    Command line =  
+#        C:\Users\B55335\Desktop\kl03-frdm-demo\src\cpu\arm_cm0.c -D IAR -D
+#        FREEDOM -lCN
+#        C:\Users\B55335\Desktop\kl03-frdm-demo\build\iar\platinum\FLASH_32KB\List\
+#        -o
+#        C:\Users\B55335\Desktop\kl03-frdm-demo\build\iar\platinum\FLASH_32KB\Obj\
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M0+ -e --fpu=None --dlib_config "C:\Program Files
+#        (x86)\IAR Systems\Embedded Workbench
+#        7.2\arm\INC\c\DLib_Config_Normal.h" -I
+#        C:\Users\B55335\Desktop\kl03-frdm-demo\build\iar\platinum\..\..\..\src\projects\platinum\
+#        -I
+#        C:\Users\B55335\Desktop\kl03-frdm-demo\build\iar\platinum\..\..\..\src\common\
+#        -I
+#        C:\Users\B55335\Desktop\kl03-frdm-demo\build\iar\platinum\..\..\..\src\cpu\
+#        -I
+#        C:\Users\B55335\Desktop\kl03-frdm-demo\build\iar\platinum\..\..\..\src\cpu\headers\
+#        -I
+#        C:\Users\B55335\Desktop\kl03-frdm-demo\build\iar\platinum\..\..\..\src\drivers\lptmr\
+#        -I
+#        C:\Users\B55335\Desktop\kl03-frdm-demo\build\iar\platinum\..\..\..\src\drivers\mcg\
+#        -I
+#        C:\Users\B55335\Desktop\kl03-frdm-demo\build\iar\platinum\..\..\..\src\drivers\pmc\
+#        -I
+#        C:\Users\B55335\Desktop\kl03-frdm-demo\build\iar\platinum\..\..\..\src\drivers\rcm\
+#        -I
+#        C:\Users\B55335\Desktop\kl03-frdm-demo\build\iar\platinum\..\..\..\src\drivers\smc\
+#        -I
+#        C:\Users\B55335\Desktop\kl03-frdm-demo\build\iar\platinum\..\..\..\src\drivers\uart\
+#        -I
+#        C:\Users\B55335\Desktop\kl03-frdm-demo\build\iar\platinum\..\..\..\src\drivers\wdog\
+#        -I
+#        C:\Users\B55335\Desktop\kl03-frdm-demo\build\iar\platinum\..\..\..\src\drivers\cmp\
+#        -I
+#        C:\Users\B55335\Desktop\kl03-frdm-demo\build\iar\platinum\..\..\..\src\platforms\
+#        -I C:\Users\B55335\Desktop\kl03-frdm-demo\build\iar\platinum\..\ -Ol
+#        --use_c++_inline
+#    List file    =  
+#        C:\Users\B55335\Desktop\kl03-frdm-demo\build\iar\platinum\FLASH_32KB\List\arm_cm0.lst
+#    Object file  =  
+#        C:\Users\B55335\Desktop\kl03-frdm-demo\build\iar\platinum\FLASH_32KB\Obj\arm_cm0.o
+#
+###############################################################################
+
+C:\Users\B55335\Desktop\kl03-frdm-demo\src\cpu\arm_cm0.c
+      1          /*
+      2           * File:		arm_cm4.c
+      3           * Purpose:		Generic high-level routines for ARM Cortex M4 processors
+      4           *
+      5           * Notes:
+      6           */
+      7          
+      8          #include "common.h"
+      9          
+     10          /***********************************************************************/
+     11          /*
+     12           * Configures the ARM system control register for STOP (deep sleep) mode
+     13           * and then executes the WFI instruction to enter the mode.
+     14           *
+     15           * Parameters:
+     16           * none
+     17           *
+     18           * Note: Might want to change this later to allow for passing in a parameter
+     19           *       to optionally set the sleep on exit bit.
+     20           */
+     21          
+
+   \                                 In section .text, align 4, keep-with-next
+     22          void stop (void)
+     23          {
+     24          	/* Set the SLEEPDEEP bit to enable deep sleep mode (STOP) */
+     25          	SCB_SCR |= SCB_SCR_SLEEPDEEP_MASK;	
+   \                     stop: (+1)
+   \   00000000   0x....             LDR      R0,??DataTable5  ;; 0xe000ed10
+   \   00000002   0x6800             LDR      R0,[R0, #+0]
+   \   00000004   0x2104             MOVS     R1,#+4
+   \   00000006   0x4301             ORRS     R1,R1,R0
+   \   00000008   0x....             LDR      R0,??DataTable5  ;; 0xe000ed10
+   \   0000000A   0x6001             STR      R1,[R0, #+0]
+     26          
+     27          	/* WFI instruction will start entry into STOP mode */
+     28          #ifndef KEIL
+     29          	asm("WFI");
+   \   0000000C   0xBF30             WFI
+     30          #else
+     31          	__wfi();
+     32          #endif
+     33          }
+   \   0000000E   0x4770             BX       LR               ;; return
+     34          /***********************************************************************/
+     35          /*
+     36           * Configures the ARM system control register for WAIT (sleep) mode
+     37           * and then executes the WFI instruction to enter the mode.
+     38           *
+     39           * Parameters:
+     40           * none
+     41           *
+     42           * Note: Might want to change this later to allow for passing in a parameter
+     43           *       to optionally set the sleep on exit bit.
+     44           */
+     45          
+
+   \                                 In section .text, align 4, keep-with-next
+     46          void wait (void)
+     47          {
+     48          	/* Clear the SLEEPDEEP bit to make sure we go into WAIT (sleep) mode instead
+     49          	 * of deep sleep.
+     50          	 */
+     51          	SCB_SCR &= ~SCB_SCR_SLEEPDEEP_MASK;	
+   \                     wait: (+1)
+   \   00000000   0x....             LDR      R0,??DataTable5  ;; 0xe000ed10
+   \   00000002   0x6800             LDR      R0,[R0, #+0]
+   \   00000004   0x2104             MOVS     R1,#+4
+   \   00000006   0x4388             BICS     R0,R0,R1
+   \   00000008   0x....             LDR      R1,??DataTable5  ;; 0xe000ed10
+   \   0000000A   0x6008             STR      R0,[R1, #+0]
+     52          
+     53          	/* WFI instruction will start entry into WAIT mode */
+     54          #ifndef KEIL
+     55          	asm("WFI");
+   \   0000000C   0xBF30             WFI
+     56          #else
+     57              __wfi();
+     58          #endif
+     59          }
+   \   0000000E   0x4770             BX       LR               ;; return
+     60          /***********************************************************************/
+     61          /*
+     62           * Change the value of the vector table offset register to the specified value.
+     63           *
+     64           * Parameters:
+     65           * vtor     new value to write to the VTOR
+     66           */
+     67          
+
+   \                                 In section .text, align 2, keep-with-next
+     68          void write_vtor (int vtor)
+     69          {
+     70                  /* Write the VTOR with the new value */
+     71                  SCB_VTOR = vtor;	
+   \                     write_vtor: (+1)
+   \   00000000   0x....             LDR      R1,??DataTable5_1  ;; 0xe000ed08
+   \   00000002   0x6008             STR      R0,[R1, #+0]
+     72          }
+   \   00000004   0x4770             BX       LR               ;; return
+     73          /***********************************************************************/
+     74          /*
+     75           * Initialize the NVIC to enable the specified IRQ.
+     76           * 
+     77           * NOTE: The function only initializes the NVIC to enable a single IRQ. 
+     78           * Interrupts will also need to be enabled in the ARM core. This can be 
+     79           * done using the EnableInterrupts macro.
+     80           *
+     81           * Parameters:
+     82           * irq    irq number to be enabled (the irq number NOT the vector number)
+     83           */
+     84          
+
+   \                                 In section .text, align 2, keep-with-next
+     85          void enable_irq (int irq)
+     86          {   
+   \                     enable_irq: (+1)
+   \   00000000   0xB570             PUSH     {R4-R6,LR}
+   \   00000002   0x0004             MOVS     R4,R0
+     87              /* Make sure that the IRQ is an allowable number. Up to 48 is 
+     88               * used.
+     89               */
+     90              if (irq > 32)
+   \   00000004   0x2C21             CMP      R4,#+33
+   \   00000006   0xDB03             BLT      ??enable_irq_0
+     91                  printf("\nERR! Invalid IRQ value passed to enable irq function!\n");
+   \   00000008   0x....             LDR      R0,??DataTable5_2
+   \   0000000A   0x.... 0x....      BL       printf
+   \   0000000E   0xE015             B        ??enable_irq_1
+     92              else
+     93              {
+     94                /* Determine which of the NVICISERs corresponds to the irq */
+     95                NVIC_ICPR |= 1 << (irq%32);
+   \                     ??enable_irq_0: (+1)
+   \   00000010   0x....             LDR      R0,??DataTable5_3  ;; 0xe000e280
+   \   00000012   0x6805             LDR      R5,[R0, #+0]
+   \   00000014   0x2601             MOVS     R6,#+1
+   \   00000016   0x0020             MOVS     R0,R4
+   \   00000018   0x2120             MOVS     R1,#+32
+   \   0000001A   0x.... 0x....      BL       __aeabi_idivmod
+   \   0000001E   0x408E             LSLS     R6,R6,R1
+   \   00000020   0x432E             ORRS     R6,R6,R5
+   \   00000022   0x....             LDR      R0,??DataTable5_3  ;; 0xe000e280
+   \   00000024   0x6006             STR      R6,[R0, #+0]
+     96                NVIC_ISER |= 1 << (irq%32);
+   \   00000026   0x....             LDR      R0,??DataTable5_4  ;; 0xe000e100
+   \   00000028   0x6805             LDR      R5,[R0, #+0]
+   \   0000002A   0x2601             MOVS     R6,#+1
+   \   0000002C   0x0020             MOVS     R0,R4
+   \   0000002E   0x2120             MOVS     R1,#+32
+   \   00000030   0x.... 0x....      BL       __aeabi_idivmod
+   \   00000034   0x408E             LSLS     R6,R6,R1
+   \   00000036   0x432E             ORRS     R6,R6,R5
+   \   00000038   0x....             LDR      R0,??DataTable5_4  ;; 0xe000e100
+   \   0000003A   0x6006             STR      R6,[R0, #+0]
+     97              }
+     98          }
+   \                     ??enable_irq_1: (+1)
+   \   0000003C   0xBD70             POP      {R4-R6,PC}       ;; return
+     99          /***********************************************************************/
+    100          /*
+    101           * Initialize the NVIC to disable the specified IRQ.
+    102           * 
+    103           * NOTE: The function only initializes the NVIC to disable a single IRQ. 
+    104           * If you want to disable all interrupts, then use the DisableInterrupts
+    105           * macro instead. 
+    106           *
+    107           * Parameters:
+    108           * irq    irq number to be disabled (the irq number NOT the vector number)
+    109           */
+    110          
+
+   \                                 In section .text, align 2, keep-with-next
+    111          void disable_irq (int irq)
+    112          {
+   \                     disable_irq: (+1)
+   \   00000000   0xB510             PUSH     {R4,LR}
+    113              
+    114              /* Make sure that the IRQ is an allowable number. Right now up to 48 is 
+    115               * used.
+    116               */
+    117              if (irq > 32)
+   \   00000002   0x2821             CMP      R0,#+33
+   \   00000004   0xDB03             BLT      ??disable_irq_0
+    118                  printf("\nERR! Invalid IRQ value passed to disable irq function!\n");
+   \   00000006   0x....             LDR      R0,??DataTable5_5
+   \   00000008   0x.... 0x....      BL       printf
+   \   0000000C   0xE006             B        ??disable_irq_1
+    119              else
+    120                /* Determine which of the NVICICERs corresponds to the irq */
+    121                NVIC_ICER = 1 << (irq%32);
+   \                     ??disable_irq_0: (+1)
+   \   0000000E   0x2401             MOVS     R4,#+1
+   \   00000010   0x2120             MOVS     R1,#+32
+   \   00000012   0x.... 0x....      BL       __aeabi_idivmod
+   \   00000016   0x408C             LSLS     R4,R4,R1
+   \   00000018   0x....             LDR      R0,??DataTable5_6  ;; 0xe000e180
+   \   0000001A   0x6004             STR      R4,[R0, #+0]
+    122          }
+   \                     ??disable_irq_1: (+1)
+   \   0000001C   0xBD10             POP      {R4,PC}          ;; return
+    123          /***********************************************************************/
+    124          /*
+    125           * Initialize the NVIC to set specified IRQ priority.
+    126           * 
+    127           * NOTE: The function only initializes the NVIC to set a single IRQ priority. 
+    128           * Interrupts will also need to be enabled in the ARM core. This can be 
+    129           * done using the EnableInterrupts macro.
+    130           *
+    131           * Parameters:
+    132           * irq    irq number to be enabled (the irq number NOT the vector number)
+    133           * prio   irq priority. 0-3 levels. 0 max priority
+    134           */
+    135          
+
+   \                                 In section .text, align 2, keep-with-next
+    136          void set_irq_priority (int irq, int prio)
+    137          {   
+   \                     set_irq_priority: (+1)
+   \   00000000   0xB538             PUSH     {R3-R5,LR}
+   \   00000002   0x0005             MOVS     R5,R0
+   \   00000004   0x000C             MOVS     R4,R1
+    138              /*irq priority pointer*/
+    139              uint8 *prio_reg;
+    140              uint8 err = 0;
+   \   00000006   0x2100             MOVS     R1,#+0
+    141              uint8 div = 0;
+   \   00000008   0x2000             MOVS     R0,#+0
+    142              
+    143              /* Make sure that the IRQ is an allowable number. Right now up to 32 is 
+    144               * used.
+    145               *
+    146               * NOTE: If you are using the interrupt definitions from the header
+    147               * file, you MUST SUBTRACT 16!!!
+    148               */
+    149              if (irq > 32)
+   \   0000000A   0x2D21             CMP      R5,#+33
+   \   0000000C   0xDB03             BLT      ??set_irq_priority_0
+    150              {
+    151                  printf("\nERR! Invalid IRQ value passed to priority irq function!\n");
+   \   0000000E   0x....             LDR      R0,??DataTable5_7
+   \   00000010   0x.... 0x....      BL       printf
+    152                  err = 1;
+   \   00000014   0x2101             MOVS     R1,#+1
+    153              }
+    154          
+    155              if (prio > 3)
+   \                     ??set_irq_priority_0: (+1)
+   \   00000016   0x2C04             CMP      R4,#+4
+   \   00000018   0xDB03             BLT      ??set_irq_priority_1
+    156              {
+    157                  printf("\nERR! Invalid priority value passed to priority irq function!\n");
+   \   0000001A   0x....             LDR      R0,??DataTable5_8
+   \   0000001C   0x.... 0x....      BL       printf
+    158                  err = 1;
+   \   00000020   0x2101             MOVS     R1,#+1
+    159              }
+    160              
+    161              if (err != 1)
+   \                     ??set_irq_priority_1: (+1)
+   \   00000022   0xB2C9             UXTB     R1,R1
+   \   00000024   0x2901             CMP      R1,#+1
+   \   00000026   0xD00A             BEQ      ??set_irq_priority_2
+    162              {
+    163                  /* Determine which of the NVICIPx corresponds to the irq */
+    164                  div = irq / 4;
+   \   00000028   0x0028             MOVS     R0,R5
+   \   0000002A   0x2104             MOVS     R1,#+4
+   \   0000002C   0x.... 0x....      BL       __aeabi_idiv
+    165                  prio_reg = (uint8 *)((uint32)&NVIC_IP(div));
+   \   00000030   0x....             LDR      R1,??DataTable5_9  ;; 0xe000e400
+   \   00000032   0xB2C0             UXTB     R0,R0
+   \   00000034   0x2204             MOVS     R2,#+4
+   \   00000036   0x4350             MULS     R0,R2,R0
+   \   00000038   0x1808             ADDS     R0,R1,R0
+    166                  /* Assign priority to IRQ */
+    167                  *prio_reg = ( (prio&0x3) << (8 - ARM_INTERRUPT_LEVEL_BITS) );             
+   \   0000003A   0x01A1             LSLS     R1,R4,#+6
+   \   0000003C   0x7001             STRB     R1,[R0, #+0]
+    168              }
+    169          }          
+   \                     ??set_irq_priority_2: (+1)
+   \   0000003E   0xBD31             POP      {R0,R4,R5,PC}    ;; return
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable5:
+   \   00000000   0xE000ED10         DC32     0xe000ed10
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable5_1:
+   \   00000000   0xE000ED08         DC32     0xe000ed08
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable5_2:
+   \   00000000   0x........         DC32     ?_0
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable5_3:
+   \   00000000   0xE000E280         DC32     0xe000e280
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable5_4:
+   \   00000000   0xE000E100         DC32     0xe000e100
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable5_5:
+   \   00000000   0x........         DC32     ?_1
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable5_6:
+   \   00000000   0xE000E180         DC32     0xe000e180
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable5_7:
+   \   00000000   0x........         DC32     ?_2
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable5_8:
+   \   00000000   0x........         DC32     ?_3
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable5_9:
+   \   00000000   0xE000E400         DC32     0xe000e400
+
+   \                                 In section .rodata, align 4
+   \                     ?_0:
+   \   00000000   0x0A 0x45          DC8 0AH, 45H, 52H, 52H, 21H, 20H, 49H, 6EH
+   \              0x52 0x52    
+   \              0x21 0x20    
+   \              0x49 0x6E    
+   \   00000008   0x76 0x61          DC8 76H, 61H, 6CH, 69H, 64H, 20H, 49H, 52H
+   \              0x6C 0x69    
+   \              0x64 0x20    
+   \              0x49 0x52    
+   \   00000010   0x51 0x20          DC8 51H, 20H, 76H, 61H, 6CH, 75H, 65H, 20H
+   \              0x76 0x61    
+   \              0x6C 0x75    
+   \              0x65 0x20    
+   \   00000018   0x70 0x61          DC8 70H, 61H, 73H, 73H, 65H, 64H, 20H, 74H
+   \              0x73 0x73    
+   \              0x65 0x64    
+   \              0x20 0x74    
+   \   00000020   0x6F 0x20          DC8 6FH, 20H, 65H, 6EH, 61H, 62H, 6CH, 65H
+   \              0x65 0x6E    
+   \              0x61 0x62    
+   \              0x6C 0x65    
+   \   00000028   0x20 0x69          DC8 20H, 69H, 72H, 71H, 20H, 66H, 75H, 6EH
+   \              0x72 0x71    
+   \              0x20 0x66    
+   \              0x75 0x6E    
+   \   00000030   0x63 0x74          DC8 63H, 74H, 69H, 6FH, 6EH, 21H, 0AH, 0
+   \              0x69 0x6F    
+   \              0x6E 0x21    
+   \              0x0A 0x00    
+
+   \                                 In section .rodata, align 4
+   \                     ?_1:
+   \   00000000   0x0A 0x45          DC8 0AH, 45H, 52H, 52H, 21H, 20H, 49H, 6EH
+   \              0x52 0x52    
+   \              0x21 0x20    
+   \              0x49 0x6E    
+   \   00000008   0x76 0x61          DC8 76H, 61H, 6CH, 69H, 64H, 20H, 49H, 52H
+   \              0x6C 0x69    
+   \              0x64 0x20    
+   \              0x49 0x52    
+   \   00000010   0x51 0x20          DC8 51H, 20H, 76H, 61H, 6CH, 75H, 65H, 20H
+   \              0x76 0x61    
+   \              0x6C 0x75    
+   \              0x65 0x20    
+   \   00000018   0x70 0x61          DC8 70H, 61H, 73H, 73H, 65H, 64H, 20H, 74H
+   \              0x73 0x73    
+   \              0x65 0x64    
+   \              0x20 0x74    
+   \   00000020   0x6F 0x20          DC8 6FH, 20H, 64H, 69H, 73H, 61H, 62H, 6CH
+   \              0x64 0x69    
+   \              0x73 0x61    
+   \              0x62 0x6C    
+   \   00000028   0x65 0x20          DC8 65H, 20H, 69H, 72H, 71H, 20H, 66H, 75H
+   \              0x69 0x72    
+   \              0x71 0x20    
+   \              0x66 0x75    
+   \   00000030   0x6E 0x63          DC8 6EH, 63H, 74H, 69H, 6FH, 6EH, 21H, 0AH
+   \              0x74 0x69    
+   \              0x6F 0x6E    
+   \              0x21 0x0A    
+   \   00000038   0x00               DC8 0
+   \   00000039   0x00 0x00          DC8 0, 0, 0
+   \              0x00         
+
+   \                                 In section .rodata, align 4
+   \                     ?_2:
+   \   00000000   0x0A 0x45          DC8 0AH, 45H, 52H, 52H, 21H, 20H, 49H, 6EH
+   \              0x52 0x52    
+   \              0x21 0x20    
+   \              0x49 0x6E    
+   \   00000008   0x76 0x61          DC8 76H, 61H, 6CH, 69H, 64H, 20H, 49H, 52H
+   \              0x6C 0x69    
+   \              0x64 0x20    
+   \              0x49 0x52    
+   \   00000010   0x51 0x20          DC8 51H, 20H, 76H, 61H, 6CH, 75H, 65H, 20H
+   \              0x76 0x61    
+   \              0x6C 0x75    
+   \              0x65 0x20    
+   \   00000018   0x70 0x61          DC8 70H, 61H, 73H, 73H, 65H, 64H, 20H, 74H
+   \              0x73 0x73    
+   \              0x65 0x64    
+   \              0x20 0x74    
+   \   00000020   0x6F 0x20          DC8 6FH, 20H, 70H, 72H, 69H, 6FH, 72H, 69H
+   \              0x70 0x72    
+   \              0x69 0x6F    
+   \              0x72 0x69    
+   \   00000028   0x74 0x79          DC8 74H, 79H, 20H, 69H, 72H, 71H, 20H, 66H
+   \              0x20 0x69    
+   \              0x72 0x71    
+   \              0x20 0x66    
+   \   00000030   0x75 0x6E          DC8 75H, 6EH, 63H, 74H, 69H, 6FH, 6EH, 21H
+   \              0x63 0x74    
+   \              0x69 0x6F    
+   \              0x6E 0x21    
+   \   00000038   0x0A 0x00          DC8 0AH, 0
+   \   0000003A   0x00 0x00          DC8 0, 0
+
+   \                                 In section .rodata, align 4
+   \                     ?_3:
+   \   00000000   0x0A 0x45          DC8 0AH, 45H, 52H, 52H, 21H, 20H, 49H, 6EH
+   \              0x52 0x52    
+   \              0x21 0x20    
+   \              0x49 0x6E    
+   \   00000008   0x76 0x61          DC8 76H, 61H, 6CH, 69H, 64H, 20H, 70H, 72H
+   \              0x6C 0x69    
+   \              0x64 0x20    
+   \              0x70 0x72    
+   \   00000010   0x69 0x6F          DC8 69H, 6FH, 72H, 69H, 74H, 79H, 20H, 76H
+   \              0x72 0x69    
+   \              0x74 0x79    
+   \              0x20 0x76    
+   \   00000018   0x61 0x6C          DC8 61H, 6CH, 75H, 65H, 20H, 70H, 61H, 73H
+   \              0x75 0x65    
+   \              0x20 0x70    
+   \              0x61 0x73    
+   \   00000020   0x73 0x65          DC8 73H, 65H, 64H, 20H, 74H, 6FH, 20H, 70H
+   \              0x64 0x20    
+   \              0x74 0x6F    
+   \              0x20 0x70    
+   \   00000028   0x72 0x69          DC8 72H, 69H, 6FH, 72H, 69H, 74H, 79H, 20H
+   \              0x6F 0x72    
+   \              0x69 0x74    
+   \              0x79 0x20    
+   \   00000030   0x69 0x72          DC8 69H, 72H, 71H, 20H, 66H, 75H, 6EH, 63H
+   \              0x71 0x20    
+   \              0x66 0x75    
+   \              0x6E 0x63    
+   \   00000038   0x74 0x69          DC8 74H, 69H, 6FH, 6EH, 21H, 0AH, 0
+   \              0x6F 0x6E    
+   \              0x21 0x0A    
+   \              0x00         
+   \   0000003F   0x00               DC8 0
+    170          
+    171          /***********************************************************************/
+    172          
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+       8   disable_irq
+         8   -> printf
+         8 __aeabi_idivmod
+      16   enable_irq
+        16   -> printf
+        16 __aeabi_idivmod
+      16   set_irq_priority
+        16   -> printf
+        16 __aeabi_idiv
+       0   stop
+       0   wait
+       0   write_vtor
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable5
+       4  ??DataTable5_1
+       4  ??DataTable5_2
+       4  ??DataTable5_3
+       4  ??DataTable5_4
+       4  ??DataTable5_5
+       4  ??DataTable5_6
+       4  ??DataTable5_7
+       4  ??DataTable5_8
+       4  ??DataTable5_9
+      56  ?_0
+      60  ?_1
+      60  ?_2
+      64  ?_3
+      30  disable_irq
+      62  enable_irq
+      64  set_irq_priority
+      16  stop
+      16  wait
+       6  write_vtor
+
+ 
+ 240 bytes in section .rodata
+ 234 bytes in section .text
+ 
+ 234 bytes of CODE  memory
+ 240 bytes of CONST memory
+
+Errors: none
+Warnings: none

@@ -1,0 +1,260 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V7.40.2.8542/W32 for ARM        30/Nov/2015  13:44:25
+# Copyright 1999-2015 IAR Systems AB.
+#
+#    Cpu mode     =  thumb
+#    Endian       =  little
+#    Source file  =  
+#        C:\Users\B55335\Desktop\kl03-frdm-demo\src\drivers\uart\uart.c
+#    Command line =  
+#        C:\Users\B55335\Desktop\kl03-frdm-demo\src\drivers\uart\uart.c -D IAR
+#        -D FREEDOM -lCN
+#        C:\Users\B55335\Desktop\kl03-frdm-demo\build\iar\platinum\FLASH_32KB\List\
+#        -o
+#        C:\Users\B55335\Desktop\kl03-frdm-demo\build\iar\platinum\FLASH_32KB\Obj\
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M0+ -e --fpu=None --dlib_config "C:\Program Files
+#        (x86)\IAR Systems\Embedded Workbench
+#        7.2\arm\INC\c\DLib_Config_Normal.h" -I
+#        C:\Users\B55335\Desktop\kl03-frdm-demo\build\iar\platinum\..\..\..\src\projects\platinum\
+#        -I
+#        C:\Users\B55335\Desktop\kl03-frdm-demo\build\iar\platinum\..\..\..\src\common\
+#        -I
+#        C:\Users\B55335\Desktop\kl03-frdm-demo\build\iar\platinum\..\..\..\src\cpu\
+#        -I
+#        C:\Users\B55335\Desktop\kl03-frdm-demo\build\iar\platinum\..\..\..\src\cpu\headers\
+#        -I
+#        C:\Users\B55335\Desktop\kl03-frdm-demo\build\iar\platinum\..\..\..\src\drivers\lptmr\
+#        -I
+#        C:\Users\B55335\Desktop\kl03-frdm-demo\build\iar\platinum\..\..\..\src\drivers\mcg\
+#        -I
+#        C:\Users\B55335\Desktop\kl03-frdm-demo\build\iar\platinum\..\..\..\src\drivers\pmc\
+#        -I
+#        C:\Users\B55335\Desktop\kl03-frdm-demo\build\iar\platinum\..\..\..\src\drivers\rcm\
+#        -I
+#        C:\Users\B55335\Desktop\kl03-frdm-demo\build\iar\platinum\..\..\..\src\drivers\smc\
+#        -I
+#        C:\Users\B55335\Desktop\kl03-frdm-demo\build\iar\platinum\..\..\..\src\drivers\uart\
+#        -I
+#        C:\Users\B55335\Desktop\kl03-frdm-demo\build\iar\platinum\..\..\..\src\drivers\wdog\
+#        -I
+#        C:\Users\B55335\Desktop\kl03-frdm-demo\build\iar\platinum\..\..\..\src\drivers\cmp\
+#        -I
+#        C:\Users\B55335\Desktop\kl03-frdm-demo\build\iar\platinum\..\..\..\src\platforms\
+#        -I C:\Users\B55335\Desktop\kl03-frdm-demo\build\iar\platinum\..\ -Ol
+#        --use_c++_inline
+#    List file    =  
+#        C:\Users\B55335\Desktop\kl03-frdm-demo\build\iar\platinum\FLASH_32KB\List\uart.lst
+#    Object file  =  
+#        C:\Users\B55335\Desktop\kl03-frdm-demo\build\iar\platinum\FLASH_32KB\Obj\uart.o
+#
+###############################################################################
+
+C:\Users\B55335\Desktop\kl03-frdm-demo\src\drivers\uart\uart.c
+      1          /*
+      2           * File:        uart.c
+      3           * Purpose:     Provide common uart routines for serial IO
+      4           *
+      5           * Notes:       
+      6           *              
+      7           */
+      8          
+      9          #include "common.h"
+     10          #include "uart.h"
+     11          
+     12          /***************************************************************************
+     13           * Begin UART0 functions
+     14           **************************************************************************/
+     15          /********************************************************************/
+     16          /*
+     17           * Initialize the uart for 8N1 operation, interrupts disabled, and
+     18           * no hardware flow-control
+     19           *
+     20           * NOTE: Since the uarts are pinned out in multiple locations on most
+     21           *       Kinetis devices, this driver does not enable uart pin functions.
+     22           *       The desired pins should be enabled before calling this init function.
+     23           *
+     24           * Parameters:
+     25           *  uartch      uart channel to initialize
+     26           *  sysclk      uart module Clock in kHz(used to calculate baud)
+     27           *  baud        uart baud rate
+     28           */
+
+   \                                 In section .text, align 2, keep-with-next
+     29          void uart0_init (LPUART_MemMapPtr uartch, int uart0clk, int baud)
+     30          {
+   \                     uart0_init: (+1)
+   \   00000000   0xB510             PUSH     {R4,LR}
+   \   00000002   0x0004             MOVS     R4,R0
+   \   00000004   0x0008             MOVS     R0,R1
+   \   00000006   0x0011             MOVS     R1,R2
+     31              register uint16 sbr;
+     32              uint8 temp;
+     33              
+     34              SIM_SCGC5 |= SIM_SCGC5_LPUART0_MASK;
+   \   00000008   0x....             LDR      R2,??DataTable0  ;; 0x40048038
+   \   0000000A   0x6812             LDR      R2,[R2, #+0]
+   \   0000000C   0x2380             MOVS     R3,#+128
+   \   0000000E   0x035B             LSLS     R3,R3,#+13       ;; #+1048576
+   \   00000010   0x4313             ORRS     R3,R3,R2
+   \   00000012   0x....             LDR      R2,??DataTable0  ;; 0x40048038
+   \   00000014   0x6013             STR      R3,[R2, #+0]
+     35            
+     36          
+     37                /* Configure the uart for 8-bit mode, no parity */
+     38              LPUART_CTRL_REG(uartch) = 0;	/* We need all default settings, so entire register is cleared */
+   \   00000016   0x2200             MOVS     R2,#+0
+   \   00000018   0x60A2             STR      R2,[R4, #+8]
+     39              
+     40                /* Calculate baud settings */
+     41              temp = ((LPUART_BAUD_REG(uartch) & LPUART_BAUD_OSR_MASK)>>24) + 1;
+   \   0000001A   0x6822             LDR      R2,[R4, #+0]
+   \   0000001C   0x0E12             LSRS     R2,R2,#+24
+   \   0000001E   0x06D2             LSLS     R2,R2,#+27       ;; ZeroExtS R2,R2,#+27,#+27
+   \   00000020   0x0ED2             LSRS     R2,R2,#+27
+   \   00000022   0x1C52             ADDS     R2,R2,#+1
+     42              sbr = (uint16)((uart0clk)/(baud * (temp)));
+   \   00000024   0xB2D2             UXTB     R2,R2
+   \   00000026   0x4351             MULS     R1,R2,R1
+   \   00000028   0x.... 0x....      BL       __aeabi_idiv
+     43              
+     44              LPUART_BAUD_REG(uartch) &= ~LPUART_BAUD_SBR_MASK;
+   \   0000002C   0x6821             LDR      R1,[R4, #+0]
+   \   0000002E   0x0B49             LSRS     R1,R1,#+13
+   \   00000030   0x0349             LSLS     R1,R1,#+13
+   \   00000032   0x6021             STR      R1,[R4, #+0]
+     45              LPUART_BAUD_REG(uartch) |= LPUART_BAUD_SBR(sbr);    
+   \   00000034   0x6821             LDR      R1,[R4, #+0]
+   \   00000036   0xB280             UXTH     R0,R0
+   \   00000038   0x04C0             LSLS     R0,R0,#+19       ;; ZeroExtS R0,R0,#+19,#+19
+   \   0000003A   0x0CC0             LSRS     R0,R0,#+19
+   \   0000003C   0x4308             ORRS     R0,R0,R1
+   \   0000003E   0x6020             STR      R0,[R4, #+0]
+     46          
+     47              /* Enable receiver and transmitter */
+     48              LPUART_CTRL_REG(uartch) |= (LPUART_CTRL_TE_MASK
+     49                        		  | LPUART_CTRL_RE_MASK );
+   \   00000040   0x68A0             LDR      R0,[R4, #+8]
+   \   00000042   0x21C0             MOVS     R1,#+192
+   \   00000044   0x0309             LSLS     R1,R1,#+12       ;; #+786432
+   \   00000046   0x4301             ORRS     R1,R1,R0
+   \   00000048   0x60A1             STR      R1,[R4, #+8]
+     50              
+     51          }
+   \   0000004A   0xBD10             POP      {R4,PC}          ;; return
+     52          /********************************************************************/
+     53          /*
+     54           * Wait for a character to be received on the specified uart
+     55           *
+     56           * Parameters:
+     57           *  channel      uart channel to read from
+     58           *
+     59           * Return Values:
+     60           *  the received character
+     61           */
+
+   \                                 In section .text, align 2, keep-with-next
+     62          char uart0_getchar (LPUART_MemMapPtr channel)
+     63          {
+   \                     uart0_getchar: (+1)
+   \   00000000   0xB500             PUSH     {LR}
+     64                /* Wait until character has been received */
+     65                while (!(LPUART_STAT_REG(channel) & LPUART_STAT_RDRF_MASK));
+   \                     ??uart0_getchar_0: (+1)
+   \   00000002   0x6841             LDR      R1,[R0, #+4]
+   \   00000004   0x0289             LSLS     R1,R1,#+10
+   \   00000006   0xD5FC             BPL      ??uart0_getchar_0
+     66              
+     67                /* Return the 8-bit data from the receiver */
+     68                return LPUART_DATA_REG(channel);
+   \   00000008   0x68C0             LDR      R0,[R0, #+12]
+   \   0000000A   0xB2C0             UXTB     R0,R0
+   \   0000000C   0xBD00             POP      {PC}             ;; return
+     69          }
+     70          /********************************************************************/
+     71          /*
+     72           * Wait for space in the uart Tx FIFO and then send a character
+     73           *
+     74           * Parameters:
+     75           *  channel      uart channel to send to
+     76           *  ch			 character to send
+     77           */ 
+
+   \                                 In section .text, align 2, keep-with-next
+     78          void uart0_putchar (LPUART_MemMapPtr channel, char ch)
+     79          {
+   \                     uart0_putchar: (+1)
+   \   00000000   0xB500             PUSH     {LR}
+     80                /* Wait until space is available in the FIFO */
+     81                while(!(LPUART_STAT_REG(channel) & LPUART_STAT_TDRE_MASK));
+   \                     ??uart0_putchar_0: (+1)
+   \   00000002   0x6842             LDR      R2,[R0, #+4]
+   \   00000004   0x0212             LSLS     R2,R2,#+8
+   \   00000006   0xD5FC             BPL      ??uart0_putchar_0
+     82              
+     83                /* Send the character */
+     84                LPUART_DATA_REG(channel) = (uint8)ch;
+   \   00000008   0xB2C9             UXTB     R1,R1
+   \   0000000A   0x60C1             STR      R1,[R0, #+12]
+     85              
+     86           }
+   \   0000000C   0xBD00             POP      {PC}             ;; return
+     87          /********************************************************************/
+     88          /*
+     89           * Check to see if a character has been received
+     90           *
+     91           * Parameters:
+     92           *  channel      uart channel to check for a character
+     93           *
+     94           * Return values:
+     95           *  0       No character received
+     96           *  1       Character has been received
+     97           */
+
+   \                                 In section .text, align 2, keep-with-next
+     98          int uart0_getchar_present (LPUART_MemMapPtr channel)
+     99          {
+    100              return (LPUART_STAT_REG(channel) & LPUART_STAT_RDRF_MASK);
+   \                     uart0_getchar_present: (+1)
+   \   00000000   0x6840             LDR      R0,[R0, #+4]
+   \   00000002   0x2180             MOVS     R1,#+128
+   \   00000004   0x0389             LSLS     R1,R1,#+14       ;; #+2097152
+   \   00000006   0x4008             ANDS     R0,R0,R1
+   \   00000008   0x4770             BX       LR               ;; return
+    101          }
+
+   \                                 In section .text, align 4, keep-with-next
+   \                     ??DataTable0:
+   \   00000000   0x40048038         DC32     0x40048038
+    102          /********************************************************************/
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+       4   uart0_getchar
+       0   uart0_getchar_present
+       8   uart0_init
+         8 __aeabi_idiv
+       4   uart0_putchar
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       4  ??DataTable0
+      14  uart0_getchar
+      10  uart0_getchar_present
+      76  uart0_init
+      14  uart0_putchar
+
+ 
+ 118 bytes in section .text
+ 
+ 118 bytes of CODE memory
+
+Errors: none
+Warnings: none

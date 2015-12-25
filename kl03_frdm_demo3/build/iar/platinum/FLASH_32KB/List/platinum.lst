@@ -1,0 +1,135 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V7.50.1.10123/W32 for ARM       08/Dec/2015  16:19:30
+# Copyright 1999-2015 IAR Systems AB.
+#
+#    Cpu mode     =  thumb
+#    Endian       =  little
+#    Source file  =  
+#        C:\Users\B55335\Desktop\KL03\kl03_frdm_demo\src\projects\platinum\platinum.c
+#    Command line =  
+#        C:\Users\B55335\Desktop\KL03\kl03_frdm_demo\src\projects\platinum\platinum.c
+#        -D IAR -D FREEDOM -lCN
+#        C:\Users\B55335\Desktop\KL03\kl03_frdm_demo\build\iar\platinum\FLASH_32KB\List
+#        -o
+#        C:\Users\B55335\Desktop\KL03\kl03_frdm_demo\build\iar\platinum\FLASH_32KB\Obj
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M0+ -e --fpu=None --dlib_config "C:\Program Files
+#        (x86)\IAR Systems\Embedded Workbench
+#        7.3\arm\INC\c\DLib_Config_Normal.h" -I
+#        C:\Users\B55335\Desktop\KL03\kl03_frdm_demo\build\iar\platinum\..\..\..\src\projects\platinum\
+#        -I
+#        C:\Users\B55335\Desktop\KL03\kl03_frdm_demo\build\iar\platinum\..\..\..\src\common\
+#        -I
+#        C:\Users\B55335\Desktop\KL03\kl03_frdm_demo\build\iar\platinum\..\..\..\src\cpu\
+#        -I
+#        C:\Users\B55335\Desktop\KL03\kl03_frdm_demo\build\iar\platinum\..\..\..\src\cpu\headers\
+#        -I
+#        C:\Users\B55335\Desktop\KL03\kl03_frdm_demo\build\iar\platinum\..\..\..\src\drivers\lptmr\
+#        -I
+#        C:\Users\B55335\Desktop\KL03\kl03_frdm_demo\build\iar\platinum\..\..\..\src\drivers\mcg\
+#        -I
+#        C:\Users\B55335\Desktop\KL03\kl03_frdm_demo\build\iar\platinum\..\..\..\src\drivers\pmc\
+#        -I
+#        C:\Users\B55335\Desktop\KL03\kl03_frdm_demo\build\iar\platinum\..\..\..\src\drivers\rcm\
+#        -I
+#        C:\Users\B55335\Desktop\KL03\kl03_frdm_demo\build\iar\platinum\..\..\..\src\drivers\smc\
+#        -I
+#        C:\Users\B55335\Desktop\KL03\kl03_frdm_demo\build\iar\platinum\..\..\..\src\drivers\uart\
+#        -I
+#        C:\Users\B55335\Desktop\KL03\kl03_frdm_demo\build\iar\platinum\..\..\..\src\drivers\wdog\
+#        -I
+#        C:\Users\B55335\Desktop\KL03\kl03_frdm_demo\build\iar\platinum\..\..\..\src\drivers\cmp\
+#        -I
+#        C:\Users\B55335\Desktop\KL03\kl03_frdm_demo\build\iar\platinum\..\..\..\src\platforms\
+#        -I C:\Users\B55335\Desktop\KL03\kl03_frdm_demo\build\iar\platinum\..\
+#        -Ol --use_c++_inline
+#    List file    =  
+#        C:\Users\B55335\Desktop\KL03\kl03_frdm_demo\build\iar\platinum\FLASH_32KB\List\platinum.lst
+#    Object file  =  
+#        C:\Users\B55335\Desktop\KL03\kl03_frdm_demo\build\iar\platinum\FLASH_32KB\Obj\platinum.o
+#
+###############################################################################
+
+C:\Users\B55335\Desktop\KL03\kl03_frdm_demo\src\projects\platinum\platinum.c
+      1          /*
+      2           * File:		platinum.c
+      3           * Purpose:		Main process
+      4           *
+      5           */
+      6          
+      7          #include "common.h"
+      8          
+      9          /********************************************************************/
+
+   \                                 In section .text, align 4, keep-with-next
+     10          int main (void)
+     11          {
+   \                     main: (+1)
+   \   00000000   0xB580             PUSH     {R7,LR}
+     12          	char ch;
+     13                  
+     14            printf("\nRunning the platinum project.\n");
+   \   00000002   0x4804             LDR      R0,??main_0
+   \   00000004   0x.... 0x....      BL       printf
+     15          
+     16          	while(1)
+     17          	{
+     18          		ch = in_char();
+   \                     ??main_1: (+1)
+   \   00000008   0x.... 0x....      BL       in_char
+     19          		out_char(ch);
+   \   0000000C   0xB2C0             UXTB     R0,R0
+   \   0000000E   0x.... 0x....      BL       out_char
+   \   00000012   0xE7F9             B        ??main_1
+   \                     ??main_0:
+   \   00000014   0x........         DC32     ?_0
+     20          	} 	
+     21          }
+
+   \                                 In section .rodata, align 4
+   \                     ?_0:
+   \   00000000   0x0A 0x52          DC8 "\012Running the platinum project.\012"
+   \              0x75 0x6E    
+   \              0x6E 0x69    
+   \              0x6E 0x67    
+   \              0x20 0x74    
+   \              0x68 0x65    
+   \              0x20 0x70    
+   \              0x6C 0x61    
+   \              0x74 0x69    
+   \              0x6E 0x75    
+   \              0x6D 0x20    
+   \              0x70 0x72    
+   \              0x6F 0x6A    
+   \              0x65 0x63    
+   \              0x74 0x2E    
+   \              0x0A 0x00    
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+       8   main
+         8   -> in_char
+         8   -> out_char
+         8   -> printf
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+      32  ?_0
+      24  main
+
+ 
+ 32 bytes in section .rodata
+ 24 bytes in section .text
+ 
+ 24 bytes of CODE  memory
+ 32 bytes of CONST memory
+
+Errors: none
+Warnings: none

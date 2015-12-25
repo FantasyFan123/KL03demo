@@ -1,0 +1,154 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V7.20.1.7305/W32 for ARM        27/Jan/2015  18:58:38
+# Copyright 1999-2014 IAR Systems AB.
+#
+#    Cpu mode     =  thumb
+#    Endian       =  little
+#    Source file  =  
+#        C:\Users\B51443\Desktop\KL02
+#        IAR\KL02-SC\kl02-frdm-demo\src\drivers\lptmr\lptmr.c
+#    Command line =  
+#        "C:\Users\B51443\Desktop\KL02
+#        IAR\KL02-SC\kl02-frdm-demo\src\drivers\lptmr\lptmr.c" -D IAR -D
+#        FREEDOM -lCN "C:\Users\B51443\Desktop\KL02
+#        IAR\KL02-SC\kl02-frdm-demo\build\iar\platinum\FLASH_32KB\List\" -o
+#        "C:\Users\B51443\Desktop\KL02
+#        IAR\KL02-SC\kl02-frdm-demo\build\iar\platinum\FLASH_32KB\Obj\"
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M0+ -e --fpu=None --dlib_config "C:\Program Files
+#        (x86)\IAR Systems\Embedded Workbench
+#        7.0\arm\INC\c\DLib_Config_Normal.h" -I "C:\Users\B51443\Desktop\KL02
+#        IAR\KL02-SC\kl02-frdm-demo\build\iar\platinum\..\..\..\src\projects\platinum\"
+#        -I "C:\Users\B51443\Desktop\KL02
+#        IAR\KL02-SC\kl02-frdm-demo\build\iar\platinum\..\..\..\src\common\" -I
+#        "C:\Users\B51443\Desktop\KL02
+#        IAR\KL02-SC\kl02-frdm-demo\build\iar\platinum\..\..\..\src\cpu\" -I
+#        "C:\Users\B51443\Desktop\KL02
+#        IAR\KL02-SC\kl02-frdm-demo\build\iar\platinum\..\..\..\src\cpu\headers\"
+#        -I "C:\Users\B51443\Desktop\KL02
+#        IAR\KL02-SC\kl02-frdm-demo\build\iar\platinum\..\..\..\src\drivers\lptmr\"
+#        -I "C:\Users\B51443\Desktop\KL02
+#        IAR\KL02-SC\kl02-frdm-demo\build\iar\platinum\..\..\..\src\drivers\mcg\"
+#        -I "C:\Users\B51443\Desktop\KL02
+#        IAR\KL02-SC\kl02-frdm-demo\build\iar\platinum\..\..\..\src\drivers\pmc\"
+#        -I "C:\Users\B51443\Desktop\KL02
+#        IAR\KL02-SC\kl02-frdm-demo\build\iar\platinum\..\..\..\src\drivers\rcm\"
+#        -I "C:\Users\B51443\Desktop\KL02
+#        IAR\KL02-SC\kl02-frdm-demo\build\iar\platinum\..\..\..\src\drivers\smc\"
+#        -I "C:\Users\B51443\Desktop\KL02
+#        IAR\KL02-SC\kl02-frdm-demo\build\iar\platinum\..\..\..\src\drivers\uart\"
+#        -I "C:\Users\B51443\Desktop\KL02
+#        IAR\KL02-SC\kl02-frdm-demo\build\iar\platinum\..\..\..\src\drivers\wdog\"
+#        -I "C:\Users\B51443\Desktop\KL02
+#        IAR\KL02-SC\kl02-frdm-demo\build\iar\platinum\..\..\..\src\drivers\cmp\"
+#        -I "C:\Users\B51443\Desktop\KL02
+#        IAR\KL02-SC\kl02-frdm-demo\build\iar\platinum\..\..\..\src\platforms\"
+#        -I "C:\Users\B51443\Desktop\KL02
+#        IAR\KL02-SC\kl02-frdm-demo\build\iar\platinum\..\" -Ol
+#        --use_c++_inline
+#    List file    =  
+#        C:\Users\B51443\Desktop\KL02
+#        IAR\KL02-SC\kl02-frdm-demo\build\iar\platinum\FLASH_32KB\List\lptmr.lst
+#    Object file  =  
+#        C:\Users\B51443\Desktop\KL02
+#        IAR\KL02-SC\kl02-frdm-demo\build\iar\platinum\FLASH_32KB\Obj\lptmr.o
+#
+###############################################################################
+
+C:\Users\B51443\Desktop\KL02 IAR\KL02-SC\kl02-frdm-demo\src\drivers\lptmr\lptmr.c
+      1          /*
+      2           * File:        lptmr.c
+      3           * Purpose:     Provide common low power timer functions
+      4           *
+      5           * Notes:       Right now only function provided is used
+      6           *              to generate a delay in ms. This driver
+      7           *              could be expanded to include more functions
+      8           *              in the future.
+      9           *
+     10           */
+     11          
+     12          
+     13          #include "common.h"
+     14          #include "lptmr.h"
+     15          
+     16          
+     17          extern int re_init_clk;
+     18          extern int clock_freq_hz;
+     19          
+     20          /********************************************************************/
+     21          /*
+     22           * Initialize the low power time to provide a delay measured in ms.
+     23           *
+     24           *
+     25           * Parameters:
+     26           *  count_val   number of ms to delay
+     27           *
+     28           * Returns:
+     29           * None
+     30           */
+     31          void time_delay_ms(uint32 count_val)
+     32          {
+     33            /* Make sure the clock to the LPTMR is enabled */
+     34            SIM_SCGC5|=SIM_SCGC5_LPTMR_MASK;
+     35          
+     36            /* Reset LPTMR settings */
+     37            LPTMR0_CSR=0;
+     38          
+     39            /* Set the compare value to the number of ms to delay */
+     40            LPTMR0_CMR = count_val;
+     41          
+     42            /* Set up LPTMR to use 1kHz LPO with no prescaler as its clock source */
+     43            LPTMR0_PSR = LPTMR_PSR_PCS(1)|LPTMR_PSR_PBYP_MASK;
+     44          
+     45            /* Start the timer */
+     46            LPTMR0_CSR |= LPTMR_CSR_TEN_MASK;
+     47          
+     48            /* Wait for counter to reach compare value */
+     49            while (!(LPTMR0_CSR & LPTMR_CSR_TCF_MASK));
+     50          
+     51            /* Disable counter and Clear Timer Compare Flag */
+     52            LPTMR0_CSR &= ~LPTMR_CSR_TEN_MASK;
+     53          
+     54            return;
+     55          }
+     56          
+     57          void lptmr_isr(void)
+     58          {
+     59          
+     60            // printf("\n****LPT ISR entered*****\r\n");
+     61            // write 1 to TCF to clear the LPT timer compare flag
+     62            LPTMR0_CSR |=  LPTMR_CSR_TCF_MASK;   
+     63          }
+     64          /*******************************************************************************
+     65          *
+     66          *   PROCEDURE NAME:
+     67          *       lptmr_init -
+     68          *
+     69          *******************************************************************************/
+     70          void lptmr_init(int count, int clock_source)
+     71          {
+     72              SIM_SCGC5 |= SIM_SCGC5_LPTMR_MASK;
+     73              // disable LPTMR
+     74              LPTMR0_CSR &= ~LPTMR_CSR_TEN_MASK; 
+     75              // select LPO for RTC and LPTMR
+     76              LPTMR0_PSR = ( LPTMR_PSR_PRESCALE(0) // 0000 is div 2
+     77                           | LPTMR_PSR_PBYP_MASK  // clock feeds directly to LPT
+     78                           | LPTMR_PSR_PCS(clock_source)) ; // use the choice of clock
+     79                        
+     80              LPTMR0_CMR = LPTMR_CMR_COMPARE(count);  //Set compare value
+     81          	// clear flag
+     82          	LPTMR0_CSR |=  LPTMR_CSR_TCF_MASK; 
+     83          	
+     84              LPTMR0_CSR =(  LPTMR_CSR_TCF_MASK   // Clear any pending interrupt
+     85                           | LPTMR_CSR_TIE_MASK   // LPT interrupt enabled
+     86                           );
+     87          	
+     88              LPTMR0_CSR |= LPTMR_CSR_TEN_MASK;   //Turn on LPT and start counting
+     89              
+     90              enable_irq(INT_LPTimer - 16);
+     91          }
+
+Errors: 7
+Warnings: none

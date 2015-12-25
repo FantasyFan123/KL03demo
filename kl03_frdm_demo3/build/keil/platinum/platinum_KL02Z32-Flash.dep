@@ -1,0 +1,244 @@
+Dependencies for Project 'platinum', Target 'KL02Z32-Flash': (DO NOT MODIFY !)
+F (..\..\..\src\projects\platinum\platinum.c)(0x567D3401)(-c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork -I..\..\..\src\projects\platinum -I..\..\..\src\common -I..\..\..\src\cpu -I..\..\..\src\cpu\headers -I..\..\..\src\drivers\lptmr -I..\..\..\src\drivers\mcg -I..\..\..\src\drivers\pmc -I..\..\..\src\drivers\rcm -I..\..\..\src\drivers\smc -I..\..\..\src\drivers\uart -I..\..\..\src\drivers\cmp -I..\..\..\src\platforms -I..\.. -I..\startup_s -I..\..\..\src\drivers\gpio -I..\..\..\src\drivers\lptmr -I..\..\..\src\drivers\I2C -I..\..\..\src\drivers\smc-I C:\Users\B55335\Desktop\KL03\kl03_frdm_demo3\build\keil\platinum\RTE-I C:\Keil_v5\ARM\PACK\Keil\Kinetis_KLxx_DFP\1.7.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DMKL03Z32xxx4 -DKEIL -DFREEDOM -DCMSIS-o .\platinum.o --omf_browse .\platinum.crf --depend .\platinum.d)
+I (..\..\..\src\common\common.h)(0x5666AE1E)
+I (..\..\..\src\projects\platinum\isr.h)(0x504FE77E)
+I (..\..\..\src\cpu\arm_cm0.h)(0x4FE2C7EE)
+I (..\..\..\src\platforms\freedom.h)(0x566E6AC5)
+I (..\..\..\src\drivers\mcg\mcg_lite.h)(0x54C73F9C)
+I (..\..\..\src\cpu\headers\MKL03Z4.h)(0x54C73F9A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
+I (..\..\..\src\common\assert.h)(0x5056DAA6)
+I (..\..\..\src\common\io.h)(0x50C047F8)
+I (..\..\..\src\common\stdlib.h)(0x5101FAF4)
+I (..\..\..\src\drivers\gpio\MKL_gpio.h)(0x56669EBC)
+I (..\..\..\src\drivers\uart\uart.h)(0x54C73F9C)
+I (..\..\..\src\drivers\lptmr\lptmr.h)(0x54C73F9C)
+I (..\..\..\src\drivers\I2C\hal_dev_mma8451.h)(0x566A5DEF)
+I (..\..\..\src\drivers\smc\smc.h)(0x512EBCA0)
+F (..\startup_s\startup_MKL03Z4.s)(0x5666BF6F)(--cpu Cortex-M0+ -g --apcs=interwork --pd "__MICROLIB SETA 1"-I C:\Users\B55335\Desktop\KL03\kl03_frdm_demo3\build\keil\platinum\RTE-I C:\Keil_v5\ARM\PACK\Keil\Kinetis_KLxx_DFP\1.7.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 515" --pd "MKL03Z32xxx4 SETA 1"--list .\startup_mkl03z4.lst --xref -o .\startup_mkl03z4.o --depend .\startup_mkl03z4.d)
+F (..\..\..\src\common\uif.c)(0x5056DAA6)(-c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork -I..\..\..\src\projects\platinum -I..\..\..\src\common -I..\..\..\src\cpu -I..\..\..\src\cpu\headers -I..\..\..\src\drivers\lptmr -I..\..\..\src\drivers\mcg -I..\..\..\src\drivers\pmc -I..\..\..\src\drivers\rcm -I..\..\..\src\drivers\smc -I..\..\..\src\drivers\uart -I..\..\..\src\drivers\cmp -I..\..\..\src\platforms -I..\.. -I..\startup_s -I..\..\..\src\drivers\gpio -I..\..\..\src\drivers\lptmr -I..\..\..\src\drivers\I2C -I..\..\..\src\drivers\smc-I C:\Users\B55335\Desktop\KL03\kl03_frdm_demo3\build\keil\platinum\RTE-I C:\Keil_v5\ARM\PACK\Keil\Kinetis_KLxx_DFP\1.7.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DMKL03Z32xxx4 -DKEIL -DFREEDOM -DCMSIS-o .\uif.o --omf_browse .\uif.crf --depend .\uif.d)
+I (..\..\..\src\common\common.h)(0x5666AE1E)
+I (..\..\..\src\projects\platinum\isr.h)(0x504FE77E)
+I (..\..\..\src\cpu\arm_cm0.h)(0x4FE2C7EE)
+I (..\..\..\src\platforms\freedom.h)(0x566E6AC5)
+I (..\..\..\src\drivers\mcg\mcg_lite.h)(0x54C73F9C)
+I (..\..\..\src\cpu\headers\MKL03Z4.h)(0x54C73F9A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
+I (..\..\..\src\common\assert.h)(0x5056DAA6)
+I (..\..\..\src\common\io.h)(0x50C047F8)
+I (..\..\..\src\common\stdlib.h)(0x5101FAF4)
+I (..\..\..\src\common\uif.h)(0x5056DAA6)
+F (..\..\..\src\common\alloc.c)(0x5056DAA6)(-c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork -I..\..\..\src\projects\platinum -I..\..\..\src\common -I..\..\..\src\cpu -I..\..\..\src\cpu\headers -I..\..\..\src\drivers\lptmr -I..\..\..\src\drivers\mcg -I..\..\..\src\drivers\pmc -I..\..\..\src\drivers\rcm -I..\..\..\src\drivers\smc -I..\..\..\src\drivers\uart -I..\..\..\src\drivers\cmp -I..\..\..\src\platforms -I..\.. -I..\startup_s -I..\..\..\src\drivers\gpio -I..\..\..\src\drivers\lptmr -I..\..\..\src\drivers\I2C -I..\..\..\src\drivers\smc-I C:\Users\B55335\Desktop\KL03\kl03_frdm_demo3\build\keil\platinum\RTE-I C:\Keil_v5\ARM\PACK\Keil\Kinetis_KLxx_DFP\1.7.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DMKL03Z32xxx4 -DKEIL -DFREEDOM -DCMSIS-o .\alloc.o --omf_browse .\alloc.crf --depend .\alloc.d)
+I (..\..\..\src\common\common.h)(0x5666AE1E)
+I (..\..\..\src\projects\platinum\isr.h)(0x504FE77E)
+I (..\..\..\src\cpu\arm_cm0.h)(0x4FE2C7EE)
+I (..\..\..\src\platforms\freedom.h)(0x566E6AC5)
+I (..\..\..\src\drivers\mcg\mcg_lite.h)(0x54C73F9C)
+I (..\..\..\src\cpu\headers\MKL03Z4.h)(0x54C73F9A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
+I (..\..\..\src\common\assert.h)(0x5056DAA6)
+I (..\..\..\src\common\io.h)(0x50C047F8)
+I (..\..\..\src\common\stdlib.h)(0x5101FAF4)
+F (..\..\..\src\common\assert.c)(0x5056DAA6)(-c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork -I..\..\..\src\projects\platinum -I..\..\..\src\common -I..\..\..\src\cpu -I..\..\..\src\cpu\headers -I..\..\..\src\drivers\lptmr -I..\..\..\src\drivers\mcg -I..\..\..\src\drivers\pmc -I..\..\..\src\drivers\rcm -I..\..\..\src\drivers\smc -I..\..\..\src\drivers\uart -I..\..\..\src\drivers\cmp -I..\..\..\src\platforms -I..\.. -I..\startup_s -I..\..\..\src\drivers\gpio -I..\..\..\src\drivers\lptmr -I..\..\..\src\drivers\I2C -I..\..\..\src\drivers\smc-I C:\Users\B55335\Desktop\KL03\kl03_frdm_demo3\build\keil\platinum\RTE-I C:\Keil_v5\ARM\PACK\Keil\Kinetis_KLxx_DFP\1.7.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DMKL03Z32xxx4 -DKEIL -DFREEDOM -DCMSIS-o .\assert.o --omf_browse .\assert.crf --depend .\assert.d)
+I (..\..\..\src\common\common.h)(0x5666AE1E)
+I (..\..\..\src\projects\platinum\isr.h)(0x504FE77E)
+I (..\..\..\src\cpu\arm_cm0.h)(0x4FE2C7EE)
+I (..\..\..\src\platforms\freedom.h)(0x566E6AC5)
+I (..\..\..\src\drivers\mcg\mcg_lite.h)(0x54C73F9C)
+I (..\..\..\src\cpu\headers\MKL03Z4.h)(0x54C73F9A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
+I (..\..\..\src\common\assert.h)(0x5056DAA6)
+I (..\..\..\src\common\io.h)(0x50C047F8)
+I (..\..\..\src\common\stdlib.h)(0x5101FAF4)
+F (..\..\..\src\common\io.c)(0x54C73F9A)(-c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork -I..\..\..\src\projects\platinum -I..\..\..\src\common -I..\..\..\src\cpu -I..\..\..\src\cpu\headers -I..\..\..\src\drivers\lptmr -I..\..\..\src\drivers\mcg -I..\..\..\src\drivers\pmc -I..\..\..\src\drivers\rcm -I..\..\..\src\drivers\smc -I..\..\..\src\drivers\uart -I..\..\..\src\drivers\cmp -I..\..\..\src\platforms -I..\.. -I..\startup_s -I..\..\..\src\drivers\gpio -I..\..\..\src\drivers\lptmr -I..\..\..\src\drivers\I2C -I..\..\..\src\drivers\smc-I C:\Users\B55335\Desktop\KL03\kl03_frdm_demo3\build\keil\platinum\RTE-I C:\Keil_v5\ARM\PACK\Keil\Kinetis_KLxx_DFP\1.7.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DMKL03Z32xxx4 -DKEIL -DFREEDOM -DCMSIS-o .\io.o --omf_browse .\io.crf --depend .\io.d)
+I (..\..\..\src\common\common.h)(0x5666AE1E)
+I (..\..\..\src\projects\platinum\isr.h)(0x504FE77E)
+I (..\..\..\src\cpu\arm_cm0.h)(0x4FE2C7EE)
+I (..\..\..\src\platforms\freedom.h)(0x566E6AC5)
+I (..\..\..\src\drivers\mcg\mcg_lite.h)(0x54C73F9C)
+I (..\..\..\src\cpu\headers\MKL03Z4.h)(0x54C73F9A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
+I (..\..\..\src\common\assert.h)(0x5056DAA6)
+I (..\..\..\src\common\io.h)(0x50C047F8)
+I (..\..\..\src\common\stdlib.h)(0x5101FAF4)
+I (..\..\..\src\drivers\uart\uart.h)(0x54C73F9C)
+F (..\..\..\src\common\memtest.c)(0x5056DAA6)(-c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork -I..\..\..\src\projects\platinum -I..\..\..\src\common -I..\..\..\src\cpu -I..\..\..\src\cpu\headers -I..\..\..\src\drivers\lptmr -I..\..\..\src\drivers\mcg -I..\..\..\src\drivers\pmc -I..\..\..\src\drivers\rcm -I..\..\..\src\drivers\smc -I..\..\..\src\drivers\uart -I..\..\..\src\drivers\cmp -I..\..\..\src\platforms -I..\.. -I..\startup_s -I..\..\..\src\drivers\gpio -I..\..\..\src\drivers\lptmr -I..\..\..\src\drivers\I2C -I..\..\..\src\drivers\smc-I C:\Users\B55335\Desktop\KL03\kl03_frdm_demo3\build\keil\platinum\RTE-I C:\Keil_v5\ARM\PACK\Keil\Kinetis_KLxx_DFP\1.7.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DMKL03Z32xxx4 -DKEIL -DFREEDOM -DCMSIS-o .\memtest.o --omf_browse .\memtest.crf --depend .\memtest.d)
+I (..\..\..\src\common\memtest.h)(0x5056DAA6)
+F (..\..\..\src\common\queue.c)(0x5056DAA6)(-c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork -I..\..\..\src\projects\platinum -I..\..\..\src\common -I..\..\..\src\cpu -I..\..\..\src\cpu\headers -I..\..\..\src\drivers\lptmr -I..\..\..\src\drivers\mcg -I..\..\..\src\drivers\pmc -I..\..\..\src\drivers\rcm -I..\..\..\src\drivers\smc -I..\..\..\src\drivers\uart -I..\..\..\src\drivers\cmp -I..\..\..\src\platforms -I..\.. -I..\startup_s -I..\..\..\src\drivers\gpio -I..\..\..\src\drivers\lptmr -I..\..\..\src\drivers\I2C -I..\..\..\src\drivers\smc-I C:\Users\B55335\Desktop\KL03\kl03_frdm_demo3\build\keil\platinum\RTE-I C:\Keil_v5\ARM\PACK\Keil\Kinetis_KLxx_DFP\1.7.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DMKL03Z32xxx4 -DKEIL -DFREEDOM -DCMSIS-o .\queue.o --omf_browse .\queue.crf --depend .\queue.d)
+I (..\..\..\src\common\common.h)(0x5666AE1E)
+I (..\..\..\src\projects\platinum\isr.h)(0x504FE77E)
+I (..\..\..\src\cpu\arm_cm0.h)(0x4FE2C7EE)
+I (..\..\..\src\platforms\freedom.h)(0x566E6AC5)
+I (..\..\..\src\drivers\mcg\mcg_lite.h)(0x54C73F9C)
+I (..\..\..\src\cpu\headers\MKL03Z4.h)(0x54C73F9A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
+I (..\..\..\src\common\assert.h)(0x5056DAA6)
+I (..\..\..\src\common\io.h)(0x50C047F8)
+I (..\..\..\src\common\stdlib.h)(0x5101FAF4)
+I (..\..\..\src\common\queue.h)(0x5056DAA6)
+F (..\..\..\src\common\stdlib.c)(0x50FFBC38)(-c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork -I..\..\..\src\projects\platinum -I..\..\..\src\common -I..\..\..\src\cpu -I..\..\..\src\cpu\headers -I..\..\..\src\drivers\lptmr -I..\..\..\src\drivers\mcg -I..\..\..\src\drivers\pmc -I..\..\..\src\drivers\rcm -I..\..\..\src\drivers\smc -I..\..\..\src\drivers\uart -I..\..\..\src\drivers\cmp -I..\..\..\src\platforms -I..\.. -I..\startup_s -I..\..\..\src\drivers\gpio -I..\..\..\src\drivers\lptmr -I..\..\..\src\drivers\I2C -I..\..\..\src\drivers\smc-I C:\Users\B55335\Desktop\KL03\kl03_frdm_demo3\build\keil\platinum\RTE-I C:\Keil_v5\ARM\PACK\Keil\Kinetis_KLxx_DFP\1.7.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DMKL03Z32xxx4 -DKEIL -DFREEDOM -DCMSIS-o .\stdlib.o --omf_browse .\stdlib.crf --depend .\stdlib.d)
+I (..\..\..\src\common\common.h)(0x5666AE1E)
+I (..\..\..\src\projects\platinum\isr.h)(0x504FE77E)
+I (..\..\..\src\cpu\arm_cm0.h)(0x4FE2C7EE)
+I (..\..\..\src\platforms\freedom.h)(0x566E6AC5)
+I (..\..\..\src\drivers\mcg\mcg_lite.h)(0x54C73F9C)
+I (..\..\..\src\cpu\headers\MKL03Z4.h)(0x54C73F9A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
+I (..\..\..\src\common\assert.h)(0x5056DAA6)
+I (..\..\..\src\common\io.h)(0x50C047F8)
+I (..\..\..\src\common\stdlib.h)(0x5101FAF4)
+F (..\..\..\src\cpu\nmi_isr_handler.c)(0x5056DAA6)(-c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork -I..\..\..\src\projects\platinum -I..\..\..\src\common -I..\..\..\src\cpu -I..\..\..\src\cpu\headers -I..\..\..\src\drivers\lptmr -I..\..\..\src\drivers\mcg -I..\..\..\src\drivers\pmc -I..\..\..\src\drivers\rcm -I..\..\..\src\drivers\smc -I..\..\..\src\drivers\uart -I..\..\..\src\drivers\cmp -I..\..\..\src\platforms -I..\.. -I..\startup_s -I..\..\..\src\drivers\gpio -I..\..\..\src\drivers\lptmr -I..\..\..\src\drivers\I2C -I..\..\..\src\drivers\smc-I C:\Users\B55335\Desktop\KL03\kl03_frdm_demo3\build\keil\platinum\RTE-I C:\Keil_v5\ARM\PACK\Keil\Kinetis_KLxx_DFP\1.7.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DMKL03Z32xxx4 -DKEIL -DFREEDOM -DCMSIS-o .\nmi_isr_handler.o --omf_browse .\nmi_isr_handler.crf --depend .\nmi_isr_handler.d)
+I (..\..\..\src\common\common.h)(0x5666AE1E)
+I (..\..\..\src\projects\platinum\isr.h)(0x504FE77E)
+I (..\..\..\src\cpu\arm_cm0.h)(0x4FE2C7EE)
+I (..\..\..\src\platforms\freedom.h)(0x566E6AC5)
+I (..\..\..\src\drivers\mcg\mcg_lite.h)(0x54C73F9C)
+I (..\..\..\src\cpu\headers\MKL03Z4.h)(0x54C73F9A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
+I (..\..\..\src\common\assert.h)(0x5056DAA6)
+I (..\..\..\src\common\io.h)(0x50C047F8)
+I (..\..\..\src\common\stdlib.h)(0x5101FAF4)
+I (..\..\..\src\cpu\nmi_isr_handler.h)(0x5056DAA4)
+F (..\..\..\src\cpu\start.c)(0x54C73F9A)(-c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork -I..\..\..\src\projects\platinum -I..\..\..\src\common -I..\..\..\src\cpu -I..\..\..\src\cpu\headers -I..\..\..\src\drivers\lptmr -I..\..\..\src\drivers\mcg -I..\..\..\src\drivers\pmc -I..\..\..\src\drivers\rcm -I..\..\..\src\drivers\smc -I..\..\..\src\drivers\uart -I..\..\..\src\drivers\cmp -I..\..\..\src\platforms -I..\.. -I..\startup_s -I..\..\..\src\drivers\gpio -I..\..\..\src\drivers\lptmr -I..\..\..\src\drivers\I2C -I..\..\..\src\drivers\smc-I C:\Users\B55335\Desktop\KL03\kl03_frdm_demo3\build\keil\platinum\RTE-I C:\Keil_v5\ARM\PACK\Keil\Kinetis_KLxx_DFP\1.7.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DMKL03Z32xxx4 -DKEIL -DFREEDOM -DCMSIS-o .\start.o --omf_browse .\start.crf --depend .\start.d)
+I (..\..\..\src\cpu\start.h)(0x50F8F2FC)
+I (..\..\..\src\common\common.h)(0x5666AE1E)
+I (..\..\..\src\projects\platinum\isr.h)(0x504FE77E)
+I (..\..\..\src\cpu\arm_cm0.h)(0x4FE2C7EE)
+I (..\..\..\src\platforms\freedom.h)(0x566E6AC5)
+I (..\..\..\src\drivers\mcg\mcg_lite.h)(0x54C73F9C)
+I (..\..\..\src\cpu\headers\MKL03Z4.h)(0x54C73F9A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
+I (..\..\..\src\common\assert.h)(0x5056DAA6)
+I (..\..\..\src\common\io.h)(0x50C047F8)
+I (..\..\..\src\common\stdlib.h)(0x5101FAF4)
+I (..\..\..\src\cpu\sysinit.h)(0x50F8F466)
+I (..\..\..\src\drivers\rcm\rcm.h)(0x50D27E08)
+I (..\..\..\src\common\startup.h)(0x5056DAA6)
+F (..\..\..\src\cpu\sysinit.c)(0x566E677F)(-c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork -I..\..\..\src\projects\platinum -I..\..\..\src\common -I..\..\..\src\cpu -I..\..\..\src\cpu\headers -I..\..\..\src\drivers\lptmr -I..\..\..\src\drivers\mcg -I..\..\..\src\drivers\pmc -I..\..\..\src\drivers\rcm -I..\..\..\src\drivers\smc -I..\..\..\src\drivers\uart -I..\..\..\src\drivers\cmp -I..\..\..\src\platforms -I..\.. -I..\startup_s -I..\..\..\src\drivers\gpio -I..\..\..\src\drivers\lptmr -I..\..\..\src\drivers\I2C -I..\..\..\src\drivers\smc-I C:\Users\B55335\Desktop\KL03\kl03_frdm_demo3\build\keil\platinum\RTE-I C:\Keil_v5\ARM\PACK\Keil\Kinetis_KLxx_DFP\1.7.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DMKL03Z32xxx4 -DKEIL -DFREEDOM -DCMSIS-o .\sysinit.o --omf_browse .\sysinit.crf --depend .\sysinit.d)
+I (..\..\..\src\common\common.h)(0x5666AE1E)
+I (..\..\..\src\projects\platinum\isr.h)(0x504FE77E)
+I (..\..\..\src\cpu\arm_cm0.h)(0x4FE2C7EE)
+I (..\..\..\src\platforms\freedom.h)(0x566E6AC5)
+I (..\..\..\src\drivers\mcg\mcg_lite.h)(0x54C73F9C)
+I (..\..\..\src\cpu\headers\MKL03Z4.h)(0x54C73F9A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
+I (..\..\..\src\common\assert.h)(0x5056DAA6)
+I (..\..\..\src\common\io.h)(0x50C047F8)
+I (..\..\..\src\common\stdlib.h)(0x5101FAF4)
+I (..\..\..\src\cpu\sysinit.h)(0x50F8F466)
+I (..\..\..\src\drivers\uart\uart.h)(0x54C73F9C)
+F (..\..\..\src\cpu\arm_cm0.c)(0x512EBF50)(-c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork -I..\..\..\src\projects\platinum -I..\..\..\src\common -I..\..\..\src\cpu -I..\..\..\src\cpu\headers -I..\..\..\src\drivers\lptmr -I..\..\..\src\drivers\mcg -I..\..\..\src\drivers\pmc -I..\..\..\src\drivers\rcm -I..\..\..\src\drivers\smc -I..\..\..\src\drivers\uart -I..\..\..\src\drivers\cmp -I..\..\..\src\platforms -I..\.. -I..\startup_s -I..\..\..\src\drivers\gpio -I..\..\..\src\drivers\lptmr -I..\..\..\src\drivers\I2C -I..\..\..\src\drivers\smc-I C:\Users\B55335\Desktop\KL03\kl03_frdm_demo3\build\keil\platinum\RTE-I C:\Keil_v5\ARM\PACK\Keil\Kinetis_KLxx_DFP\1.7.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DMKL03Z32xxx4 -DKEIL -DFREEDOM -DCMSIS-o .\arm_cm0.o --omf_browse .\arm_cm0.crf --depend .\arm_cm0.d)
+I (..\..\..\src\common\common.h)(0x5666AE1E)
+I (..\..\..\src\projects\platinum\isr.h)(0x504FE77E)
+I (..\..\..\src\cpu\arm_cm0.h)(0x4FE2C7EE)
+I (..\..\..\src\platforms\freedom.h)(0x566E6AC5)
+I (..\..\..\src\drivers\mcg\mcg_lite.h)(0x54C73F9C)
+I (..\..\..\src\cpu\headers\MKL03Z4.h)(0x54C73F9A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
+I (..\..\..\src\common\assert.h)(0x5056DAA6)
+I (..\..\..\src\common\io.h)(0x50C047F8)
+I (..\..\..\src\common\stdlib.h)(0x5101FAF4)
+F (..\..\..\src\drivers\uart\uart.c)(0x5667DB63)(-c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork -I..\..\..\src\projects\platinum -I..\..\..\src\common -I..\..\..\src\cpu -I..\..\..\src\cpu\headers -I..\..\..\src\drivers\lptmr -I..\..\..\src\drivers\mcg -I..\..\..\src\drivers\pmc -I..\..\..\src\drivers\rcm -I..\..\..\src\drivers\smc -I..\..\..\src\drivers\uart -I..\..\..\src\drivers\cmp -I..\..\..\src\platforms -I..\.. -I..\startup_s -I..\..\..\src\drivers\gpio -I..\..\..\src\drivers\lptmr -I..\..\..\src\drivers\I2C -I..\..\..\src\drivers\smc-I C:\Users\B55335\Desktop\KL03\kl03_frdm_demo3\build\keil\platinum\RTE-I C:\Keil_v5\ARM\PACK\Keil\Kinetis_KLxx_DFP\1.7.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DMKL03Z32xxx4 -DKEIL -DFREEDOM -DCMSIS-o .\uart.o --omf_browse .\uart.crf --depend .\uart.d)
+I (..\..\..\src\common\common.h)(0x5666AE1E)
+I (..\..\..\src\projects\platinum\isr.h)(0x504FE77E)
+I (..\..\..\src\cpu\arm_cm0.h)(0x4FE2C7EE)
+I (..\..\..\src\platforms\freedom.h)(0x566E6AC5)
+I (..\..\..\src\drivers\mcg\mcg_lite.h)(0x54C73F9C)
+I (..\..\..\src\cpu\headers\MKL03Z4.h)(0x54C73F9A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
+I (..\..\..\src\common\assert.h)(0x5056DAA6)
+I (..\..\..\src\common\io.h)(0x50C047F8)
+I (..\..\..\src\common\stdlib.h)(0x5101FAF4)
+I (..\..\..\src\drivers\uart\uart.h)(0x54C73F9C)
+F (..\..\..\src\drivers\rcm\rcm.c)(0x54C73F9C)(-c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork -I..\..\..\src\projects\platinum -I..\..\..\src\common -I..\..\..\src\cpu -I..\..\..\src\cpu\headers -I..\..\..\src\drivers\lptmr -I..\..\..\src\drivers\mcg -I..\..\..\src\drivers\pmc -I..\..\..\src\drivers\rcm -I..\..\..\src\drivers\smc -I..\..\..\src\drivers\uart -I..\..\..\src\drivers\cmp -I..\..\..\src\platforms -I..\.. -I..\startup_s -I..\..\..\src\drivers\gpio -I..\..\..\src\drivers\lptmr -I..\..\..\src\drivers\I2C -I..\..\..\src\drivers\smc-I C:\Users\B55335\Desktop\KL03\kl03_frdm_demo3\build\keil\platinum\RTE-I C:\Keil_v5\ARM\PACK\Keil\Kinetis_KLxx_DFP\1.7.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DMKL03Z32xxx4 -DKEIL -DFREEDOM -DCMSIS-o .\rcm.o --omf_browse .\rcm.crf --depend .\rcm.d)
+I (..\..\..\src\common\common.h)(0x5666AE1E)
+I (..\..\..\src\projects\platinum\isr.h)(0x504FE77E)
+I (..\..\..\src\cpu\arm_cm0.h)(0x4FE2C7EE)
+I (..\..\..\src\platforms\freedom.h)(0x566E6AC5)
+I (..\..\..\src\drivers\mcg\mcg_lite.h)(0x54C73F9C)
+I (..\..\..\src\cpu\headers\MKL03Z4.h)(0x54C73F9A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
+I (..\..\..\src\common\assert.h)(0x5056DAA6)
+I (..\..\..\src\common\io.h)(0x50C047F8)
+I (..\..\..\src\common\stdlib.h)(0x5101FAF4)
+I (..\..\..\src\drivers\rcm\rcm.h)(0x50D27E08)
+F (..\..\..\src\drivers\rcm\rcm.h)(0x50D27E08)()
+F (..\..\..\src\drivers\uart\Retarget.c)(0x54C73F9C)(-c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork -I..\..\..\src\projects\platinum -I..\..\..\src\common -I..\..\..\src\cpu -I..\..\..\src\cpu\headers -I..\..\..\src\drivers\lptmr -I..\..\..\src\drivers\mcg -I..\..\..\src\drivers\pmc -I..\..\..\src\drivers\rcm -I..\..\..\src\drivers\smc -I..\..\..\src\drivers\uart -I..\..\..\src\drivers\cmp -I..\..\..\src\platforms -I..\.. -I..\startup_s -I..\..\..\src\drivers\gpio -I..\..\..\src\drivers\lptmr -I..\..\..\src\drivers\I2C -I..\..\..\src\drivers\smc-I C:\Users\B55335\Desktop\KL03\kl03_frdm_demo3\build\keil\platinum\RTE-I C:\Keil_v5\ARM\PACK\Keil\Kinetis_KLxx_DFP\1.7.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DMKL03Z32xxx4 -DKEIL -DFREEDOM -DCMSIS-o .\retarget.o --omf_browse .\retarget.crf --depend .\retarget.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x54C245B8)
+I (C:\Keil_v5\ARM\ARMCC\include\rt_misc.h)(0x54C245B8)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x54C245B8)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
+I (..\..\..\src\drivers\uart\serial.h)(0x54C73F9C)
+F (..\..\..\src\drivers\uart\Serial.c)(0x54C7ACCA)(-c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork -I..\..\..\src\projects\platinum -I..\..\..\src\common -I..\..\..\src\cpu -I..\..\..\src\cpu\headers -I..\..\..\src\drivers\lptmr -I..\..\..\src\drivers\mcg -I..\..\..\src\drivers\pmc -I..\..\..\src\drivers\rcm -I..\..\..\src\drivers\smc -I..\..\..\src\drivers\uart -I..\..\..\src\drivers\cmp -I..\..\..\src\platforms -I..\.. -I..\startup_s -I..\..\..\src\drivers\gpio -I..\..\..\src\drivers\lptmr -I..\..\..\src\drivers\I2C -I..\..\..\src\drivers\smc-I C:\Users\B55335\Desktop\KL03\kl03_frdm_demo3\build\keil\platinum\RTE-I C:\Keil_v5\ARM\PACK\Keil\Kinetis_KLxx_DFP\1.7.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DMKL03Z32xxx4 -DKEIL -DFREEDOM -DCMSIS-o .\serial.o --omf_browse .\serial.crf --depend .\serial.d)
+I (..\..\..\src\common\common.h)(0x5666AE1E)
+I (..\..\..\src\projects\platinum\isr.h)(0x504FE77E)
+I (..\..\..\src\cpu\arm_cm0.h)(0x4FE2C7EE)
+I (..\..\..\src\platforms\freedom.h)(0x566E6AC5)
+I (..\..\..\src\drivers\mcg\mcg_lite.h)(0x54C73F9C)
+I (..\..\..\src\cpu\headers\MKL03Z4.h)(0x54C73F9A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
+I (..\..\..\src\common\assert.h)(0x5056DAA6)
+I (..\..\..\src\common\io.h)(0x50C047F8)
+I (..\..\..\src\common\stdlib.h)(0x5101FAF4)
+I (..\..\..\src\drivers\uart\Serial.h)(0x54C73F9C)
+I (..\..\..\src\drivers\uart\uart.h)(0x54C73F9C)
+F (..\..\..\src\drivers\mcg\mcg_lite.c)(0x54C73F9C)(-c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork -I..\..\..\src\projects\platinum -I..\..\..\src\common -I..\..\..\src\cpu -I..\..\..\src\cpu\headers -I..\..\..\src\drivers\lptmr -I..\..\..\src\drivers\mcg -I..\..\..\src\drivers\pmc -I..\..\..\src\drivers\rcm -I..\..\..\src\drivers\smc -I..\..\..\src\drivers\uart -I..\..\..\src\drivers\cmp -I..\..\..\src\platforms -I..\.. -I..\startup_s -I..\..\..\src\drivers\gpio -I..\..\..\src\drivers\lptmr -I..\..\..\src\drivers\I2C -I..\..\..\src\drivers\smc-I C:\Users\B55335\Desktop\KL03\kl03_frdm_demo3\build\keil\platinum\RTE-I C:\Keil_v5\ARM\PACK\Keil\Kinetis_KLxx_DFP\1.7.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DMKL03Z32xxx4 -DKEIL -DFREEDOM -DCMSIS-o .\mcg_lite.o --omf_browse .\mcg_lite.crf --depend .\mcg_lite.d)
+I (..\..\..\src\common\common.h)(0x5666AE1E)
+I (..\..\..\src\projects\platinum\isr.h)(0x504FE77E)
+I (..\..\..\src\cpu\arm_cm0.h)(0x4FE2C7EE)
+I (..\..\..\src\platforms\freedom.h)(0x566E6AC5)
+I (..\..\..\src\drivers\mcg\mcg_lite.h)(0x54C73F9C)
+I (..\..\..\src\cpu\headers\MKL03Z4.h)(0x54C73F9A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
+I (..\..\..\src\common\assert.h)(0x5056DAA6)
+I (..\..\..\src\common\io.h)(0x50C047F8)
+I (..\..\..\src\common\stdlib.h)(0x5101FAF4)
+F (..\..\..\src\drivers\lptmr\lptmr.c)(0x5667E0AE)(-c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork -I..\..\..\src\projects\platinum -I..\..\..\src\common -I..\..\..\src\cpu -I..\..\..\src\cpu\headers -I..\..\..\src\drivers\lptmr -I..\..\..\src\drivers\mcg -I..\..\..\src\drivers\pmc -I..\..\..\src\drivers\rcm -I..\..\..\src\drivers\smc -I..\..\..\src\drivers\uart -I..\..\..\src\drivers\cmp -I..\..\..\src\platforms -I..\.. -I..\startup_s -I..\..\..\src\drivers\gpio -I..\..\..\src\drivers\lptmr -I..\..\..\src\drivers\I2C -I..\..\..\src\drivers\smc-I C:\Users\B55335\Desktop\KL03\kl03_frdm_demo3\build\keil\platinum\RTE-I C:\Keil_v5\ARM\PACK\Keil\Kinetis_KLxx_DFP\1.7.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DMKL03Z32xxx4 -DKEIL -DFREEDOM -DCMSIS-o .\lptmr.o --omf_browse .\lptmr.crf --depend .\lptmr.d)
+I (..\..\..\src\common\common.h)(0x5666AE1E)
+I (..\..\..\src\projects\platinum\isr.h)(0x504FE77E)
+I (..\..\..\src\cpu\arm_cm0.h)(0x4FE2C7EE)
+I (..\..\..\src\platforms\freedom.h)(0x566E6AC5)
+I (..\..\..\src\drivers\mcg\mcg_lite.h)(0x54C73F9C)
+I (..\..\..\src\cpu\headers\MKL03Z4.h)(0x54C73F9A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
+I (..\..\..\src\common\assert.h)(0x5056DAA6)
+I (..\..\..\src\common\io.h)(0x50C047F8)
+I (..\..\..\src\common\stdlib.h)(0x5101FAF4)
+I (..\..\..\src\drivers\lptmr\lptmr.h)(0x54C73F9C)
+F (..\..\..\src\drivers\I2C\hal_dev_mma8451.c)(0x566A6F69)(-c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork -I..\..\..\src\projects\platinum -I..\..\..\src\common -I..\..\..\src\cpu -I..\..\..\src\cpu\headers -I..\..\..\src\drivers\lptmr -I..\..\..\src\drivers\mcg -I..\..\..\src\drivers\pmc -I..\..\..\src\drivers\rcm -I..\..\..\src\drivers\smc -I..\..\..\src\drivers\uart -I..\..\..\src\drivers\cmp -I..\..\..\src\platforms -I..\.. -I..\startup_s -I..\..\..\src\drivers\gpio -I..\..\..\src\drivers\lptmr -I..\..\..\src\drivers\I2C -I..\..\..\src\drivers\smc-I C:\Users\B55335\Desktop\KL03\kl03_frdm_demo3\build\keil\platinum\RTE-I C:\Keil_v5\ARM\PACK\Keil\Kinetis_KLxx_DFP\1.7.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DMKL03Z32xxx4 -DKEIL -DFREEDOM -DCMSIS-o .\hal_dev_mma8451.o --omf_browse .\hal_dev_mma8451.crf --depend .\hal_dev_mma8451.d)
+I (..\..\..\src\common\common.h)(0x5666AE1E)
+I (..\..\..\src\projects\platinum\isr.h)(0x504FE77E)
+I (..\..\..\src\cpu\arm_cm0.h)(0x4FE2C7EE)
+I (..\..\..\src\platforms\freedom.h)(0x566E6AC5)
+I (..\..\..\src\drivers\mcg\mcg_lite.h)(0x54C73F9C)
+I (..\..\..\src\cpu\headers\MKL03Z4.h)(0x54C73F9A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
+I (..\..\..\src\common\assert.h)(0x5056DAA6)
+I (..\..\..\src\common\io.h)(0x50C047F8)
+I (..\..\..\src\common\stdlib.h)(0x5101FAF4)
+I (..\..\..\src\drivers\I2C\hal_i2c.h)(0x50568664)
+I (..\..\..\src\drivers\I2C\hal_dev_mma8451.h)(0x566A5DEF)
+F (..\..\..\src\drivers\I2C\hal_i2c.c)(0x566A5F4A)(-c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork -I..\..\..\src\projects\platinum -I..\..\..\src\common -I..\..\..\src\cpu -I..\..\..\src\cpu\headers -I..\..\..\src\drivers\lptmr -I..\..\..\src\drivers\mcg -I..\..\..\src\drivers\pmc -I..\..\..\src\drivers\rcm -I..\..\..\src\drivers\smc -I..\..\..\src\drivers\uart -I..\..\..\src\drivers\cmp -I..\..\..\src\platforms -I..\.. -I..\startup_s -I..\..\..\src\drivers\gpio -I..\..\..\src\drivers\lptmr -I..\..\..\src\drivers\I2C -I..\..\..\src\drivers\smc-I C:\Users\B55335\Desktop\KL03\kl03_frdm_demo3\build\keil\platinum\RTE-I C:\Keil_v5\ARM\PACK\Keil\Kinetis_KLxx_DFP\1.7.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DMKL03Z32xxx4 -DKEIL -DFREEDOM -DCMSIS-o .\hal_i2c.o --omf_browse .\hal_i2c.crf --depend .\hal_i2c.d)
+I (..\..\..\src\common\common.h)(0x5666AE1E)
+I (..\..\..\src\projects\platinum\isr.h)(0x504FE77E)
+I (..\..\..\src\cpu\arm_cm0.h)(0x4FE2C7EE)
+I (..\..\..\src\platforms\freedom.h)(0x566E6AC5)
+I (..\..\..\src\drivers\mcg\mcg_lite.h)(0x54C73F9C)
+I (..\..\..\src\cpu\headers\MKL03Z4.h)(0x54C73F9A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
+I (..\..\..\src\common\assert.h)(0x5056DAA6)
+I (..\..\..\src\common\io.h)(0x50C047F8)
+I (..\..\..\src\common\stdlib.h)(0x5101FAF4)
+F (..\..\..\src\drivers\smc\smc.c)(0x512EBC9E)(-c --cpu Cortex-M0+ -D__MICROLIB -g -O3 --apcs=interwork -I..\..\..\src\projects\platinum -I..\..\..\src\common -I..\..\..\src\cpu -I..\..\..\src\cpu\headers -I..\..\..\src\drivers\lptmr -I..\..\..\src\drivers\mcg -I..\..\..\src\drivers\pmc -I..\..\..\src\drivers\rcm -I..\..\..\src\drivers\smc -I..\..\..\src\drivers\uart -I..\..\..\src\drivers\cmp -I..\..\..\src\platforms -I..\.. -I..\startup_s -I..\..\..\src\drivers\gpio -I..\..\..\src\drivers\lptmr -I..\..\..\src\drivers\I2C -I..\..\..\src\drivers\smc-I C:\Users\B55335\Desktop\KL03\kl03_frdm_demo3\build\keil\platinum\RTE-I C:\Keil_v5\ARM\PACK\Keil\Kinetis_KLxx_DFP\1.7.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="515" -DMKL03Z32xxx4 -DKEIL -DFREEDOM -DCMSIS-o .\smc.o --omf_browse .\smc.crf --depend .\smc.d)
+I (..\..\..\src\common\common.h)(0x5666AE1E)
+I (..\..\..\src\projects\platinum\isr.h)(0x504FE77E)
+I (..\..\..\src\cpu\arm_cm0.h)(0x4FE2C7EE)
+I (..\..\..\src\platforms\freedom.h)(0x566E6AC5)
+I (..\..\..\src\drivers\mcg\mcg_lite.h)(0x54C73F9C)
+I (..\..\..\src\cpu\headers\MKL03Z4.h)(0x54C73F9A)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x54C245B8)
+I (..\..\..\src\common\assert.h)(0x5056DAA6)
+I (..\..\..\src\common\io.h)(0x50C047F8)
+I (..\..\..\src\common\stdlib.h)(0x5101FAF4)
+I (..\..\..\src\drivers\smc\smc.h)(0x512EBCA0)
+F (..\..\..\src\platforms\freedom.h)(0x566E6AC5)()

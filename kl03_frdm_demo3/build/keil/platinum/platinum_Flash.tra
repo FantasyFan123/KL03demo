@@ -1,0 +1,38 @@
+*** Creating Trace Output File 'platinum_Flash.tra' Ok.
+### Preparing for ADS-LD.
+### Creating ADS-LD Command Line
+### List of Objects: adding '"platinum.o"'
+### List of Objects: adding '".\startup_mkl02z4.o"'
+### List of Objects: adding '"uif.o"'
+### List of Objects: adding '"alloc.o"'
+### List of Objects: adding '"assert.o"'
+### List of Objects: adding '"io.o"'
+### List of Objects: adding '"memtest.o"'
+### List of Objects: adding '"queue.o"'
+### List of Objects: adding '"stdlib.o"'
+### List of Objects: adding '"nmi_isr_handler.o"'
+### List of Objects: adding '"start.o"'
+### List of Objects: adding '"sysinit.o"'
+### List of Objects: adding '"arm_cm0.o"'
+### List of Objects: adding '"lptmr.o"'
+### List of Objects: adding '"mcg.o"'
+### List of Objects: adding '"uart.o"'
+### List of Objects: adding '"rcm.o"'
+### List of Objects: adding '"retarget.o"'
+### List of Objects: adding '"serial.o"'
+### ADS-LD Command completed:
+--cpu Cortex-M0+ "platinum.o" ".\startup_mkl02z4.o" "uif.o" "alloc.o" "assert.o" "io.o" "memtest.o" "queue.o" "stdlib.o" "nmi_isr_handler.o" "start.o" "sysinit.o" "arm_cm0.o" "lptmr.o" "mcg.o" "uart.o" "rcm.o" "retarget.o" "serial.o" 
+--library_type=microlib --strict --scatter "platinum_Flash.sct" 
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list ".\platinum_Flash.map" -o platinum_Flash.axf### Preparing Environment (PrepEnvAds)
+### ADS-LD Output File: 'platinum_Flash.axf'
+### ADS-LD Command File: 'platinum_Flash.lnp'
+### Checking for dirty Components...
+### Creating CmdFile 'platinum_Flash.lnp', Handle=0x000002D8
+### Writing '.lnp' file
+### ADS-LD Command file 'platinum_Flash.lnp' is ready.
+### ADS-LD: About to start ADS-LD Thread.
+### ADS-LD: executed with 0 errors
+### Updating obj list
+### LDADS_file() completed.

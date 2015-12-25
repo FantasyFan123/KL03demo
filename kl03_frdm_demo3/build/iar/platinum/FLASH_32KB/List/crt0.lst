@@ -1,0 +1,64 @@
+###############################################################################
+#                                                                             #
+#     IAR Assembler V7.40.2.8542/W32 for ARM 30/Nov/2015  13:44:21            #
+#     Copyright 1999-2015 IAR Systems AB.                                     #
+#                                                                             #
+#           Source file   =  C:\Users\B55335\Desktop\kl03-frdm-demo\src\cpu\crt0.s#
+#           List file     =  C:\Users\B55335\Desktop\kl03-frdm-demo\build\iar\platinum\FLASH_32KB\List\crt0.lst#
+#           Object file   =  C:\Users\B55335\Desktop\kl03-frdm-demo\build\iar\platinum\FLASH_32KB\Obj\crt0.o#
+#           Command line  =  C:\Users\B55335\Desktop\kl03-frdm-demo\src\cpu\crt0.s #
+#                            -OC:\Users\B55335\Desktop\kl03-frdm-demo\build\iar\platinum\FLASH_32KB\Obj\ #
+#                            -s+ -M<> -w+ -r                                  #
+#                            -LC:\Users\B55335\Desktop\kl03-frdm-demo\build\iar\platinum\FLASH_32KB\List\ #
+#                            -t8 --cpu Cortex-M0+ --fpu None                  #
+#                                                                             #
+###############################################################################
+
+    1                           /*
+    2                            * File:        crt0.s
+    3                            * Purpose:     Lowest level routines for
+                                 Kinetis.
+    4                            *
+    5                            * Notes:       
+    6                            *
+    7                            */
+    8                           
+    9                           
+   10                           ;         AREA   Crt0, CODE, READONLY      ;
+                                 name this block of code
+   11                             SECTION .noinit : CODE
+   12                           
+   13                                   EXPORT  __startup
+   14                           __startup
+   15    00000000 0020              LDR     r0,=0                   ;
+                                                                     Initialize
+                                                                     the
+                                                                     GPRs
+   16    00000002 0021                  LDR     r1,=0
+   17    00000004 0022                  LDR     r2,=0
+   18    00000006 0023                  LDR     r3,=0
+   19    00000008 0024                  LDR     r4,=0
+   20    0000000A 0025                  LDR     r5,=0
+   21    0000000C 0026                  LDR     r6,=0
+   22    0000000E 0027                  LDR     r7,=0
+   23                           
+   24    00000010 62B6                  CPSIE   i                       ;
+                                                 Unmask interrupts
+   25                                   import start
+   26    00000012 ........              BL      start               ; call the
+                                                                     C
+                                                                     code
+   27                           __done
+   28    00000016 FEE7                  B       __done
+   29                           
+   30                                   END
+##############################
+#           CRC:0            #
+#        Errors:   0         #
+#        Warnings: 0         #
+#         Bytes: 24          #
+##############################
+
+
+
+

@@ -1,0 +1,229 @@
+File generated Wed Jan 28 00:02:51 2015
+
+Pass 1 of 1
+Starting fragment-style flashloader pass.
+FlashInitEntry is at 0x2000014C
+FlashWriteEntry is at 0x20000154
+FlashEraseWriteEntry is at 0x2000015C
+FlashBreak is at 0x1FFFFF90
+FlashBufferStart is at 0x20000200
+FlashBufferEnd is at 0x20000268
+FlashChecksumEntry not found
+FlashSignoffEntry not found
+page size is 4 (0x4)
+filler is 0xff
+buffer size is 104 (0x68)
+SimpleCode records (after offset):
+  Record 0: @ 0x0 [1040 (0x410) bytes] 0x0 - 0x40f [f8 5 0]
+  Record 1: @ 0x410 [5020 (0x139c) bytes] 0x410 - 0x17ab [0 20 0]
+Base of flash at 0x0
+->init       : base @ 0x0, image size 0x17ac
+  timing(init): 0.0000 (CPU) 0.0170 (elapsed)
+Transaction list:
+  Transaction @ 0x0 + 0x0 (0x68 bytes) 1 packet(s).
+    Will erase 1 block(s):
+      0: 0x0 (0x400 bytes)
+  Transaction @ 0x0 + 0x68 (0x68 bytes) 1 packet(s).
+  Transaction @ 0x0 + 0xd0 (0x68 bytes) 1 packet(s).
+  Transaction @ 0x0 + 0x138 (0x68 bytes) 1 packet(s).
+  Transaction @ 0x0 + 0x1a0 (0x68 bytes) 1 packet(s).
+  Transaction @ 0x0 + 0x208 (0x68 bytes) 1 packet(s).
+  Transaction @ 0x0 + 0x270 (0x68 bytes) 1 packet(s).
+  Transaction @ 0x0 + 0x2d8 (0x68 bytes) 1 packet(s).
+  Transaction @ 0x0 + 0x340 (0x68 bytes) 1 packet(s).
+  Transaction @ 0x0 + 0x3a8 (0x58 bytes) 1 packet(s).
+  Transaction @ 0x400 + 0x0 (0x68 bytes) 1 packet(s).
+    Will erase 1 block(s):
+      0: 0x400 (0x400 bytes)
+  Transaction @ 0x400 + 0x68 (0x68 bytes) 1 packet(s).
+  Transaction @ 0x400 + 0xd0 (0x68 bytes) 1 packet(s).
+  Transaction @ 0x400 + 0x138 (0x68 bytes) 1 packet(s).
+  Transaction @ 0x400 + 0x1a0 (0x68 bytes) 1 packet(s).
+  Transaction @ 0x400 + 0x208 (0x68 bytes) 1 packet(s).
+  Transaction @ 0x400 + 0x270 (0x68 bytes) 1 packet(s).
+  Transaction @ 0x400 + 0x2d8 (0x68 bytes) 1 packet(s).
+  Transaction @ 0x400 + 0x340 (0x68 bytes) 1 packet(s).
+  Transaction @ 0x400 + 0x3a8 (0x58 bytes) 1 packet(s).
+  Transaction @ 0x800 + 0x0 (0x68 bytes) 1 packet(s).
+    Will erase 1 block(s):
+      0: 0x800 (0x400 bytes)
+  Transaction @ 0x800 + 0x68 (0x68 bytes) 1 packet(s).
+  Transaction @ 0x800 + 0xd0 (0x68 bytes) 1 packet(s).
+  Transaction @ 0x800 + 0x138 (0x68 bytes) 1 packet(s).
+  Transaction @ 0x800 + 0x1a0 (0x68 bytes) 1 packet(s).
+  Transaction @ 0x800 + 0x208 (0x68 bytes) 1 packet(s).
+  Transaction @ 0x800 + 0x270 (0x68 bytes) 1 packet(s).
+  Transaction @ 0x800 + 0x2d8 (0x68 bytes) 1 packet(s).
+  Transaction @ 0x800 + 0x340 (0x68 bytes) 1 packet(s).
+  Transaction @ 0x800 + 0x3a8 (0x58 bytes) 1 packet(s).
+  Transaction @ 0xc00 + 0x0 (0x68 bytes) 1 packet(s).
+    Will erase 1 block(s):
+      0: 0xc00 (0x400 bytes)
+  Transaction @ 0xc00 + 0x68 (0x68 bytes) 1 packet(s).
+  Transaction @ 0xc00 + 0xd0 (0x68 bytes) 1 packet(s).
+  Transaction @ 0xc00 + 0x138 (0x68 bytes) 1 packet(s).
+  Transaction @ 0xc00 + 0x1a0 (0x68 bytes) 1 packet(s).
+  Transaction @ 0xc00 + 0x208 (0x68 bytes) 1 packet(s).
+  Transaction @ 0xc00 + 0x270 (0x68 bytes) 1 packet(s).
+  Transaction @ 0xc00 + 0x2d8 (0x68 bytes) 1 packet(s).
+  Transaction @ 0xc00 + 0x340 (0x68 bytes) 1 packet(s).
+  Transaction @ 0xc00 + 0x3a8 (0x58 bytes) 1 packet(s).
+  Transaction @ 0x1000 + 0x0 (0x68 bytes) 1 packet(s).
+    Will erase 1 block(s):
+      0: 0x1000 (0x400 bytes)
+  Transaction @ 0x1000 + 0x68 (0x68 bytes) 1 packet(s).
+  Transaction @ 0x1000 + 0xd0 (0x68 bytes) 1 packet(s).
+  Transaction @ 0x1000 + 0x138 (0x68 bytes) 1 packet(s).
+  Transaction @ 0x1000 + 0x1a0 (0x68 bytes) 1 packet(s).
+  Transaction @ 0x1000 + 0x208 (0x68 bytes) 1 packet(s).
+  Transaction @ 0x1000 + 0x270 (0x68 bytes) 1 packet(s).
+  Transaction @ 0x1000 + 0x2d8 (0x68 bytes) 1 packet(s).
+  Transaction @ 0x1000 + 0x340 (0x68 bytes) 1 packet(s).
+  Transaction @ 0x1000 + 0x3a8 (0x58 bytes) 1 packet(s).
+  Transaction @ 0x1400 + 0x0 (0x68 bytes) 1 packet(s).
+    Will erase 1 block(s):
+      0: 0x1400 (0x400 bytes)
+  Transaction @ 0x1400 + 0x68 (0x68 bytes) 1 packet(s).
+  Transaction @ 0x1400 + 0xd0 (0x68 bytes) 1 packet(s).
+  Transaction @ 0x1400 + 0x138 (0x68 bytes) 1 packet(s).
+  Transaction @ 0x1400 + 0x1a0 (0x68 bytes) 1 packet(s).
+  Transaction @ 0x1400 + 0x208 (0x68 bytes) 1 packet(s).
+  Transaction @ 0x1400 + 0x270 (0x68 bytes) 1 packet(s).
+  Transaction @ 0x1400 + 0x2d8 (0x68 bytes) 1 packet(s).
+  Transaction @ 0x1400 + 0x340 (0x68 bytes) 1 packet(s).
+  Transaction @ 0x1400 + 0x3a8 (0x4 bytes) 1 packet(s).
+->multi_erase: 1 blocks (0x8 bytes in buffer) [0 0 0]
+  timing(erase): 0.0000 (CPU) 0.0180 (elapsed)
+->write      : @ 0x0 (0x68 bytes, offset 0x0 into block @ 0x0) [f8 5 0]
+  timing(write): 0.0000 (CPU) 0.0140 (elapsed)
+->write      : @ 0x68 (0x68 bytes, offset 0x68 into block @ 0x0) [b9 15 0]
+  timing(write): 0.0000 (CPU) 0.0140 (elapsed)
+->write      : @ 0xd0 (0x68 bytes, offset 0xd0 into block @ 0x0) [b9 15 0]
+  timing(write): 0.0000 (CPU) 0.0140 (elapsed)
+->write      : @ 0x138 (0x68 bytes, offset 0x138 into block @ 0x0) [b9 15 0]
+  timing(write): 0.0000 (CPU) 0.0140 (elapsed)
+->write      : @ 0x1a0 (0x68 bytes, offset 0x1a0 into block @ 0x0) [b9 15 0]
+  timing(write): 0.0000 (CPU) 0.0140 (elapsed)
+->write      : @ 0x208 (0x68 bytes, offset 0x208 into block @ 0x0) [b9 15 0]
+  timing(write): 0.0000 (CPU) 0.0140 (elapsed)
+->write      : @ 0x270 (0x68 bytes, offset 0x270 into block @ 0x0) [b9 15 0]
+  timing(write): 0.0000 (CPU) 0.0140 (elapsed)
+->write      : @ 0x2d8 (0x68 bytes, offset 0x2d8 into block @ 0x0) [b9 15 0]
+  timing(write): 0.0000 (CPU) 0.0140 (elapsed)
+->write      : @ 0x340 (0x68 bytes, offset 0x340 into block @ 0x0) [b9 15 0]
+  timing(write): 0.0000 (CPU) 0.0140 (elapsed)
+->write      : @ 0x3a8 (0x58 bytes, offset 0x3a8 into block @ 0x0) [b9 15 0]
+  timing(write): 0.0156 (CPU) 0.0140 (elapsed)
+->multi_erase: 1 blocks (0x8 bytes in buffer) [0 4 0]
+  timing(erase): 0.0000 (CPU) 0.0210 (elapsed)
+->write      : @ 0x400 (0x68 bytes, offset 0x0 into block @ 0x400) [ff ff ff]
+  timing(write): 0.0000 (CPU) 0.0140 (elapsed)
+->write      : @ 0x468 (0x68 bytes, offset 0x68 into block @ 0x400) [0 2f 9]
+  timing(write): 0.0156 (CPU) 0.0130 (elapsed)
+->write      : @ 0x4d0 (0x68 bytes, offset 0xd0 into block @ 0x400) [ee e7 f8]
+  timing(write): 0.0000 (CPU) 0.0160 (elapsed)
+->write      : @ 0x538 (0x68 bytes, offset 0x138 into block @ 0x400) [69 46 ff]
+  timing(write): 0.0000 (CPU) 0.0150 (elapsed)
+->write      : @ 0x5a0 (0x68 bytes, offset 0x1a0 into block @ 0x400) [6d 1e 1]
+  timing(write): 0.0156 (CPU) 0.0140 (elapsed)
+->write      : @ 0x608 (0x68 bytes, offset 0x208 into block @ 0x400) [0 e0 6d]
+  timing(write): 0.0156 (CPU) 0.0130 (elapsed)
+->write      : @ 0x670 (0x68 bytes, offset 0x270 into block @ 0x400) [1 90 76]
+  timing(write): 0.0156 (CPU) 0.0140 (elapsed)
+->write      : @ 0x6d8 (0x68 bytes, offset 0x2d8 into block @ 0x400) [1 98 ff]
+  timing(write): 0.0156 (CPU) 0.0140 (elapsed)
+->write      : @ 0x740 (0x68 bytes, offset 0x340 into block @ 0x400) [ff f7 c7]
+  timing(write): 0.0000 (CPU) 0.0150 (elapsed)
+->write      : @ 0x7a8 (0x58 bytes, offset 0x3a8 into block @ 0x400) [7 a8 ff]
+  timing(write): 0.0156 (CPU) 0.0130 (elapsed)
+->multi_erase: 1 blocks (0x8 bytes in buffer) [0 8 0]
+  timing(erase): 0.0000 (CPU) 0.0200 (elapsed)
+->write      : @ 0x800 (0x68 bytes, offset 0x0 into block @ 0x800) [2 99 30]
+  timing(write): 0.0000 (CPU) 0.0140 (elapsed)
+->write      : @ 0x868 (0x68 bytes, offset 0x68 into block @ 0x800) [0 f0 aa]
+  timing(write): 0.0000 (CPU) 0.0130 (elapsed)
+->write      : @ 0x8d0 (0x68 bytes, offset 0xd0 into block @ 0x800) [ff f7 1d]
+  timing(write): 0.0000 (CPU) 0.0140 (elapsed)
+->write      : @ 0x938 (0x68 bytes, offset 0x138 into block @ 0x800) [12 6 8b]
+  timing(write): 0.0000 (CPU) 0.0140 (elapsed)
+->write      : @ 0x9a0 (0x68 bytes, offset 0x1a0 into block @ 0x800) [1 d3 4b]
+  timing(write): 0.0000 (CPU) 0.0140 (elapsed)
+->write      : @ 0xa08 (0x68 bytes, offset 0x208 into block @ 0x800) [70 47 0]
+  timing(write): 0.0000 (CPU) 0.0130 (elapsed)
+->write      : @ 0xa70 (0x68 bytes, offset 0x270 into block @ 0x800) [76 48 ff]
+  timing(write): 0.0000 (CPU) 0.0140 (elapsed)
+->write      : @ 0xad8 (0x68 bytes, offset 0x2d8 into block @ 0x800) [2 28 16]
+  timing(write): 0.0000 (CPU) 0.0140 (elapsed)
+->write      : @ 0xb40 (0x68 bytes, offset 0x340 into block @ 0x800) [6 e0 53]
+  timing(write): 0.0000 (CPU) 0.0140 (elapsed)
+->write      : @ 0xba8 (0x58 bytes, offset 0x3a8 into block @ 0x800) [ff f7 88]
+  timing(write): 0.0000 (CPU) 0.0140 (elapsed)
+->multi_erase: 1 blocks (0x8 bytes in buffer) [0 c 0]
+  timing(erase): 0.0156 (CPU) 0.0180 (elapsed)
+->write      : @ 0xc00 (0x68 bytes, offset 0x0 into block @ 0xc00) [ff f7 5c]
+  timing(write): 0.0000 (CPU) 0.0140 (elapsed)
+->write      : @ 0xc68 (0x68 bytes, offset 0x68 into block @ 0xc00) [20 20 0]
+  timing(write): 0.0156 (CPU) 0.0130 (elapsed)
+->write      : @ 0xcd0 (0x68 bytes, offset 0xd0 into block @ 0xc00) [b8 11 0]
+  timing(write): 0.0156 (CPU) 0.0130 (elapsed)
+->write      : @ 0xd38 (0x68 bytes, offset 0x138 into block @ 0xc00) [d 49 e]
+  timing(write): 0.0156 (CPU) 0.0140 (elapsed)
+->write      : @ 0xda0 (0x68 bytes, offset 0x1a0 into block @ 0xc00) [0 f0 46]
+  timing(write): 0.0000 (CPU) 0.0130 (elapsed)
+->write      : @ 0xe08 (0x68 bytes, offset 0x208 into block @ 0xc00) [80 20 80]
+  timing(write): 0.0156 (CPU) 0.0140 (elapsed)
+->write      : @ 0xe70 (0x68 bytes, offset 0x270 into block @ 0xc00) [0 7 2]
+  timing(write): 0.0156 (CPU) 0.0130 (elapsed)
+->write      : @ 0xed8 (0x68 bytes, offset 0x2d8 into block @ 0xc00) [ff f7 f0]
+  timing(write): 0.0156 (CPU) 0.0150 (elapsed)
+->write      : @ 0xf40 (0x68 bytes, offset 0x340 into block @ 0xc00) [bd fc 29]
+  timing(write): 0.0156 (CPU) 0.0230 (elapsed)
+->write      : @ 0xfa8 (0x58 bytes, offset 0x3a8 into block @ 0xc00) [1 78 c9]
+  timing(write): 0.0000 (CPU) 0.0150 (elapsed)
+->multi_erase: 1 blocks (0x8 bytes in buffer) [0 10 0]
+  timing(erase): 0.0156 (CPU) 0.0210 (elapsed)
+->write      : @ 0x1000 (0x68 bytes, offset 0x0 into block @ 0x1000) [e4 15 0]
+  timing(write): 0.0000 (CPU) 0.0160 (elapsed)
+->write      : @ 0x1068 (0x68 bytes, offset 0x68 into block @ 0x1000) [18 40 6]
+  timing(write): 0.0000 (CPU) 0.0150 (elapsed)
+->write      : @ 0x10d0 (0x68 bytes, offset 0xd0 into block @ 0x1000) [89 2 fc]
+  timing(write): 0.0000 (CPU) 0.0140 (elapsed)
+->write      : @ 0x1138 (0x68 bytes, offset 0x138 into block @ 0x1000) [72 65 67]
+  timing(write): 0.0000 (CPU) 0.0140 (elapsed)
+->write      : @ 0x11a0 (0x68 bytes, offset 0x1a0 into block @ 0x1000) [4b 42 20]
+  timing(write): 0.0000 (CPU) 0.0160 (elapsed)
+->write      : @ 0x1208 (0x68 bytes, offset 0x208 into block @ 0x1000) [70 72 6f]
+  timing(write): 0.0000 (CPU) 0.0130 (elapsed)
+->write      : @ 0x1270 (0x68 bytes, offset 0x270 into block @ 0x1000) [53 52 53]
+  timing(write): 0.0000 (CPU) 0.0150 (elapsed)
+->write      : @ 0x12d8 (0x68 bytes, offset 0x2d8 into block @ 0x1000) [6e 69 7a]
+  timing(write): 0.0000 (CPU) 0.0140 (elapsed)
+->write      : @ 0x1340 (0x68 bytes, offset 0x340 into block @ 0x1000) [20 20 20]
+  timing(write): 0.0000 (CPU) 0.0140 (elapsed)
+->write      : @ 0x13a8 (0x58 bytes, offset 0x3a8 into block @ 0x1000) [6 4c 7c]
+  timing(write): 0.0000 (CPU) 0.0140 (elapsed)
+->multi_erase: 1 blocks (0x8 bytes in buffer) [0 14 0]
+  timing(erase): 0.0000 (CPU) 0.0180 (elapsed)
+->write      : @ 0x1400 (0x68 bytes, offset 0x0 into block @ 0x1400) [20 20 20]
+  timing(write): 0.0000 (CPU) 0.0140 (elapsed)
+->write      : @ 0x1468 (0x68 bytes, offset 0x68 into block @ 0x1400) [53 4d 43]
+  timing(write): 0.0156 (CPU) 0.0130 (elapsed)
+->write      : @ 0x14d0 (0x68 bytes, offset 0xd0 into block @ 0x1400) [65 73 65]
+  timing(write): 0.0000 (CPU) 0.0140 (elapsed)
+->write      : @ 0x1538 (0x68 bytes, offset 0x138 into block @ 0x1400) [7 46 38]
+  timing(write): 0.0000 (CPU) 0.0140 (elapsed)
+->write      : @ 0x15a0 (0x68 bytes, offset 0x1a0 into block @ 0x1400) [5b 6f 75]
+  timing(write): 0.0000 (CPU) 0.0140 (elapsed)
+->write      : @ 0x1608 (0x68 bytes, offset 0x208 into block @ 0x1400) [42 a 0]
+  timing(write): 0.0000 (CPU) 0.0130 (elapsed)
+->write      : @ 0x1670 (0x68 bytes, offset 0x270 into block @ 0x1400) [53 52 41]
+  timing(write): 0.0000 (CPU) 0.0140 (elapsed)
+->write      : @ 0x16d8 (0x68 bytes, offset 0x2d8 into block @ 0x1400) [32 34 70]
+  timing(write): 0.0000 (CPU) 0.0140 (elapsed)
+->write      : @ 0x1740 (0x68 bytes, offset 0x340 into block @ 0x1400) [20 20 20]
+  timing(write): 0.0156 (CPU) 0.0140 (elapsed)
+->write      : @ 0x17a8 (0x4 bytes, offset 0x3a8 into block @ 0x1400) [0 0 0]
+  timing(write): 0.0000 (CPU) 0.0130 (elapsed)
+Duration:   1.01 (CPU)   4.73 (elapsed)
+  of which on target: 0.2808 (CPU) 0.9810 (elapsed)
+Flash loading pass finished

@@ -1,0 +1,154 @@
+###############################################################################
+#
+# IAR ANSI C/C++ Compiler V7.40.2.8542/W32 for ARM        30/Nov/2015  13:44:22
+# Copyright 1999-2015 IAR Systems AB.
+#
+#    Cpu mode     =  thumb
+#    Endian       =  little
+#    Source file  =  C:\Users\B55335\Desktop\kl03-frdm-demo\src\common\assert.c
+#    Command line =  
+#        C:\Users\B55335\Desktop\kl03-frdm-demo\src\common\assert.c -D IAR -D
+#        FREEDOM -lCN
+#        C:\Users\B55335\Desktop\kl03-frdm-demo\build\iar\platinum\FLASH_32KB\List\
+#        -o
+#        C:\Users\B55335\Desktop\kl03-frdm-demo\build\iar\platinum\FLASH_32KB\Obj\
+#        --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa
+#        --no_clustering --no_scheduling --debug --endian=little
+#        --cpu=Cortex-M0+ -e --fpu=None --dlib_config "C:\Program Files
+#        (x86)\IAR Systems\Embedded Workbench
+#        7.2\arm\INC\c\DLib_Config_Normal.h" -I
+#        C:\Users\B55335\Desktop\kl03-frdm-demo\build\iar\platinum\..\..\..\src\projects\platinum\
+#        -I
+#        C:\Users\B55335\Desktop\kl03-frdm-demo\build\iar\platinum\..\..\..\src\common\
+#        -I
+#        C:\Users\B55335\Desktop\kl03-frdm-demo\build\iar\platinum\..\..\..\src\cpu\
+#        -I
+#        C:\Users\B55335\Desktop\kl03-frdm-demo\build\iar\platinum\..\..\..\src\cpu\headers\
+#        -I
+#        C:\Users\B55335\Desktop\kl03-frdm-demo\build\iar\platinum\..\..\..\src\drivers\lptmr\
+#        -I
+#        C:\Users\B55335\Desktop\kl03-frdm-demo\build\iar\platinum\..\..\..\src\drivers\mcg\
+#        -I
+#        C:\Users\B55335\Desktop\kl03-frdm-demo\build\iar\platinum\..\..\..\src\drivers\pmc\
+#        -I
+#        C:\Users\B55335\Desktop\kl03-frdm-demo\build\iar\platinum\..\..\..\src\drivers\rcm\
+#        -I
+#        C:\Users\B55335\Desktop\kl03-frdm-demo\build\iar\platinum\..\..\..\src\drivers\smc\
+#        -I
+#        C:\Users\B55335\Desktop\kl03-frdm-demo\build\iar\platinum\..\..\..\src\drivers\uart\
+#        -I
+#        C:\Users\B55335\Desktop\kl03-frdm-demo\build\iar\platinum\..\..\..\src\drivers\wdog\
+#        -I
+#        C:\Users\B55335\Desktop\kl03-frdm-demo\build\iar\platinum\..\..\..\src\drivers\cmp\
+#        -I
+#        C:\Users\B55335\Desktop\kl03-frdm-demo\build\iar\platinum\..\..\..\src\platforms\
+#        -I C:\Users\B55335\Desktop\kl03-frdm-demo\build\iar\platinum\..\ -Ol
+#        --use_c++_inline
+#    List file    =  
+#        C:\Users\B55335\Desktop\kl03-frdm-demo\build\iar\platinum\FLASH_32KB\List\assert.lst
+#    Object file  =  
+#        C:\Users\B55335\Desktop\kl03-frdm-demo\build\iar\platinum\FLASH_32KB\Obj\assert.o
+#
+###############################################################################
+
+C:\Users\B55335\Desktop\kl03-frdm-demo\src\common\assert.c
+      1          /*
+      2           * File:        assert.c
+      3           * Purpose:     Provide macro for software assertions
+      4           *
+      5           * Notes:       ASSERT macro defined in assert.h calls assert_failed()
+      6           */
+      7          
+      8          #include "common.h"
+      9          
+
+   \                                 In section .rodata, align 4
+     10          const char ASSERT_FAILED_STR[] = "Assertion failed in %s at line %d\n";
+   \                     ASSERT_FAILED_STR:
+   \   00000000   0x41 0x73          DC8 "Assertion failed in %s at line %d\012"
+   \              0x73 0x65    
+   \              0x72 0x74    
+   \              0x69 0x6F    
+   \              0x6E 0x20    
+   \              0x66 0x61    
+   \              0x69 0x6C    
+   \              0x65 0x64    
+   \              0x20 0x69    
+   \              0x6E 0x20    
+   \              0x25 0x73    
+   \              0x20 0x61    
+   \              0x74 0x20    
+   \              0x6C 0x69    
+   \              0x6E 0x65    
+   \              0x20 0x25    
+   \              0x64 0x0A    
+   \              0x00         
+   \   00000023   0x00               DC8 0
+     11          
+     12          /********************************************************************/
+
+   \                                 In section .text, align 4, keep-with-next
+     13          void
+     14          assert_failed(char *file, int line)
+     15          {
+   \                     assert_failed: (+1)
+   \   00000000   0xB580             PUSH     {R7,LR}
+     16              int i;
+     17              
+     18              printf(ASSERT_FAILED_STR, file, line);
+   \   00000002   0x000A             MOVS     R2,R1
+   \   00000004   0x0001             MOVS     R1,R0
+   \   00000006   0x4806             LDR      R0,??assert_failed_0
+   \   00000008   0x.... 0x....      BL       printf
+     19          
+     20              while (1)
+     21              {
+     22          //        platform_led_display(0xFF);
+     23                  for (i = 100000; i; i--) ;
+   \                     ??assert_failed_1: (+1)
+   \   0000000C   0x4805             LDR      R0,??assert_failed_0+0x4  ;; 0x186a0
+   \   0000000E   0xE000             B        ??assert_failed_2
+   \                     ??assert_failed_3: (+1)
+   \   00000010   0x1E40             SUBS     R0,R0,#+1
+   \                     ??assert_failed_2: (+1)
+   \   00000012   0x2800             CMP      R0,#+0
+   \   00000014   0xD1FC             BNE      ??assert_failed_3
+     24          //        platform_led_display(0x00);
+     25                  for (i = 100000; i; i--) ;
+   \   00000016   0x4803             LDR      R0,??assert_failed_0+0x4  ;; 0x186a0
+   \                     ??assert_failed_4: (+1)
+   \   00000018   0x2800             CMP      R0,#+0
+   \   0000001A   0xD0F7             BEQ      ??assert_failed_1
+   \   0000001C   0x1E40             SUBS     R0,R0,#+1
+   \   0000001E   0xE7FB             B        ??assert_failed_4
+   \                     ??assert_failed_0:
+   \   00000020   0x........         DC32     ASSERT_FAILED_STR
+   \   00000024   0x000186A0         DC32     0x186a0
+     26              }
+     27          }
+     28          /********************************************************************/
+
+   Maximum stack usage in bytes:
+
+   .cstack Function
+   ------- --------
+       8   assert_failed
+         8   -> printf
+
+
+   Section sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+      36  ASSERT_FAILED_STR
+      40  assert_failed
+
+ 
+ 36 bytes in section .rodata
+ 40 bytes in section .text
+ 
+ 40 bytes of CODE  memory
+ 36 bytes of CONST memory
+
+Errors: none
+Warnings: none
