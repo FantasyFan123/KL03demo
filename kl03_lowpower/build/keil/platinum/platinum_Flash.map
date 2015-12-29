@@ -8,7 +8,7 @@ Section Cross References
     platinum.o(.text) refers to arm_cm0.o(.text) for enable_irq
     platinum.o(.text) refers to smc.o(.text) for enter_vlps
     platinum.o(.text) refers to io.o(.text) for out_char
-    platinum.o(.text) refers to sysinit.o(.data) for mcg_clk_hz
+    platinum.o(.text) refers to sysinit.o(.data) for uart0_clk_khz
     platinum.o(.text) refers to platinum.o(.data) for .data
     startup_mkl03z4.o(RESET) refers to startup_mkl03z4.o(STACK) for __initial_sp
     startup_mkl03z4.o(RESET) refers to startup_mkl03z4.o(.text) for Reset_Handler
@@ -29,6 +29,8 @@ Section Cross References
     start.o(.text) refers to printf8.o(i.__0printf$8) for __2printf
     start.o(.text) refers to sysinit.o(.text) for sysinit
     start.o(.text) refers to rcm.o(.text) for outSRS
+    sysinit.o(.text) refers to mcg_lite.o(.text) for MCG_HIRC48
+    sysinit.o(.text) refers to idiv.o(.text) for __aeabi_idivmod
     sysinit.o(.text) refers to uidiv.o(.text) for __aeabi_uidivmod
     sysinit.o(.text) refers to uart.o(.text) for uart0_init
     sysinit.o(.text) refers to sysinit.o(.data) for .data
@@ -325,7 +327,6 @@ Removing Unused input sections from the image.
     Removing nmi_isr_handler.o(.text), (72 bytes).
     Removing sysinit.o(.data), (4 bytes).
     Removing retarget.o(.data), (4 bytes).
-    Removing mcg_lite.o(.text), (56 bytes).
     Removing lptmr.o(.text), (112 bytes).
     Removing hal_dev_mma8451.o(.text), (292 bytes).
     Removing hal_i2c.o(.text), (200 bytes).
@@ -337,7 +338,7 @@ Removing Unused input sections from the image.
     Removing depilogue.o(.text), (190 bytes).
     Removing depilogue.o(i.__ARM_clz), (46 bytes).
 
-27 unused section(s) (total 4449 bytes) removed from the image.
+26 unused section(s) (total 4393 bytes) removed from the image.
 
 ==============================================================================
 
@@ -348,14 +349,14 @@ Image Symbol Table
     Symbol Name                              Value     Ov Type        Size  Object(Section)
 
     RESET                                    0x00000000   Section      192  startup_mkl03z4.o(RESET)
+    ../clib/microlib/division.c              0x00000000   Number         0  uidiv.o ABSOLUTE
     ../clib/microlib/division.c              0x00000000   Number         0  uldiv.o ABSOLUTE
     ../clib/microlib/division.c              0x00000000   Number         0  idiv.o ABSOLUTE
-    ../clib/microlib/division.c              0x00000000   Number         0  uidiv.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
@@ -370,14 +371,14 @@ Image Symbol Table
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfa.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf8.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf7.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfb.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf0.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf6.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfb.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf5.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf0.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf1.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf2.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf3.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf4.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf5.o ABSOLUTE
     ../clib/microlib/printf/stubs.s          0x00000000   Number         0  stubs.o ABSOLUTE
     ../clib/microlib/stubs.s                 0x00000000   Number         0  useno.o ABSOLUTE
     ../clib/microlib/stubs.s                 0x00000000   Number         0  iusefp.o ABSOLUTE
@@ -426,31 +427,32 @@ Image Symbol Table
     .text                                    0x00000204   Section       40  startup_mkl03z4.o(.text)
     .text                                    0x0000022c   Section        0  io.o(.text)
     .text                                    0x00000250   Section        0  sysinit.o(.text)
-    .text                                    0x000002dc   Section        0  uart.o(.text)
-    .text                                    0x00000348   Section        0  retarget.o(.text)
-    .text                                    0x00000378   Section        0  serial.o(.text)
-    .text                                    0x00000398   Section        0  uidiv.o(.text)
-    .text                                    0x000003c4   Section        0  idiv.o(.text)
-    i.__scatterload_copy                     0x000003ec   Section       14  handlers.o(i.__scatterload_copy)
-    i.__scatterload_null                     0x000003fa   Section        2  handlers.o(i.__scatterload_null)
+    .text                                    0x000002f4   Section        0  uart.o(.text)
+    .text                                    0x00000360   Section        0  retarget.o(.text)
+    .text                                    0x00000390   Section        0  serial.o(.text)
+    .text                                    0x000003b0   Section        0  mcg_lite.o(.text)
+    i.__scatterload_copy                     0x000003e8   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x000003f6   Section        2  handlers.o(i.__scatterload_null)
     .ARM.__at_0x400                          0x00000400   Section       16  startup_mkl03z4.o(.ARM.__at_0x400)
     .text                                    0x00000410   Section        0  start.o(.text)
     .text                                    0x0000095c   Section        0  arm_cm0.o(.text)
     .text                                    0x00000b0c   Section        0  rcm.o(.text)
     .text                                    0x00000e40   Section        0  smc.o(.text)
-    .text                                    0x00001094   Section        0  uldiv.o(.text)
-    .text                                    0x000010f4   Section       36  init.o(.text)
-    .text                                    0x00001118   Section        0  llshl.o(.text)
-    .text                                    0x00001138   Section        0  llushr.o(.text)
-    i.__0printf$8                            0x0000115c   Section        0  printf8.o(i.__0printf$8)
-    i.__ARM_common_switch8                   0x0000117c   Section        0  start.o(i.__ARM_common_switch8)
-    i.__scatterload_zeroinit                 0x00001196   Section       14  handlers.o(i.__scatterload_zeroinit)
-    i._printf_core                           0x000011a4   Section        0  printf8.o(i._printf_core)
-    _printf_core                             0x000011a5   Thumb Code  1020  printf8.o(i._printf_core)
-    i._printf_post_padding                   0x000015cc   Section        0  printf8.o(i._printf_post_padding)
-    _printf_post_padding                     0x000015cd   Thumb Code    32  printf8.o(i._printf_post_padding)
-    i._printf_pre_padding                    0x000015ec   Section        0  printf8.o(i._printf_pre_padding)
-    _printf_pre_padding                      0x000015ed   Thumb Code    44  printf8.o(i._printf_pre_padding)
+    .text                                    0x00001094   Section        0  uidiv.o(.text)
+    .text                                    0x000010c0   Section        0  idiv.o(.text)
+    .text                                    0x000010e8   Section        0  uldiv.o(.text)
+    .text                                    0x00001148   Section       36  init.o(.text)
+    .text                                    0x0000116c   Section        0  llshl.o(.text)
+    .text                                    0x0000118c   Section        0  llushr.o(.text)
+    i.__0printf$8                            0x000011b0   Section        0  printf8.o(i.__0printf$8)
+    i.__ARM_common_switch8                   0x000011d0   Section        0  start.o(i.__ARM_common_switch8)
+    i.__scatterload_zeroinit                 0x000011ea   Section       14  handlers.o(i.__scatterload_zeroinit)
+    i._printf_core                           0x000011f8   Section        0  printf8.o(i._printf_core)
+    _printf_core                             0x000011f9   Thumb Code  1020  printf8.o(i._printf_core)
+    i._printf_post_padding                   0x00001620   Section        0  printf8.o(i._printf_post_padding)
+    _printf_post_padding                     0x00001621   Thumb Code    32  printf8.o(i._printf_post_padding)
+    i._printf_pre_padding                    0x00001640   Section        0  printf8.o(i._printf_pre_padding)
+    _printf_pre_padding                      0x00001641   Thumb Code    44  printf8.o(i._printf_pre_padding)
     .data                                    0x20000000   Section        2  platinum.o(.data)
     .data                                    0x20000004   Section       20  sysinit.o(.data)
     .data                                    0x20000018   Section        4  retarget.o(.data)
@@ -530,10 +532,10 @@ Image Symbol Table
     _main_init                               0x000000c9   Thumb Code     0  entry9a.o(.ARM.Collect$$$$0000000B)
     __rt_final_cpp                           0x000000d1   Thumb Code     0  entry10a.o(.ARM.Collect$$$$0000000D)
     __rt_final_exit                          0x000000d1   Thumb Code     0  entry11a.o(.ARM.Collect$$$$0000000F)
-    uart0_lpconfigure                        0x000000d5   Thumb Code    46  platinum.o(.text)
-    main                                     0x00000103   Thumb Code   136  platinum.o(.text)
-    PORTB_IRQHandler                         0x0000018b   Thumb Code    38  platinum.o(.text)
-    LPUART0_IRQHandler                       0x000001b1   Thumb Code    44  platinum.o(.text)
+    uart0_lpconfigure                        0x000000d5   Thumb Code    48  platinum.o(.text)
+    main                                     0x00000105   Thumb Code   136  platinum.o(.text)
+    PORTB_IRQHandler                         0x0000018d   Thumb Code    38  platinum.o(.text)
+    LPUART0_IRQHandler                       0x000001b3   Thumb Code    44  platinum.o(.text)
     init_data_bss                            0x00000205   Thumb Code     2  startup_mkl03z4.o(.text)
     Reset_Handler                            0x00000207   Thumb Code    12  startup_mkl03z4.o(.text)
     NMI_Handler                              0x00000213   Thumb Code     2  startup_mkl03z4.o(.text)
@@ -575,24 +577,21 @@ Image Symbol Table
     in_char                                  0x0000022d   Thumb Code    10  io.o(.text)
     out_char                                 0x00000237   Thumb Code    12  io.o(.text)
     char_present                             0x00000243   Thumb Code    10  io.o(.text)
-    sysinit                                  0x00000251   Thumb Code   116  sysinit.o(.text)
-    uart0_init                               0x000002dd   Thumb Code    68  uart.o(.text)
-    uart0_getchar                            0x00000321   Thumb Code    12  uart.o(.text)
-    uart0_putchar                            0x0000032d   Thumb Code    10  uart.o(.text)
-    uart0_getchar_present                    0x00000337   Thumb Code    10  uart.o(.text)
-    fputc                                    0x00000349   Thumb Code    22  retarget.o(.text)
-    fgetc                                    0x0000035f   Thumb Code     8  retarget.o(.text)
-    ferror                                   0x00000367   Thumb Code     6  retarget.o(.text)
-    _ttywrch                                 0x0000036d   Thumb Code     8  retarget.o(.text)
-    _sys_exit                                0x00000375   Thumb Code     2  retarget.o(.text)
-    SER_PutChar                              0x00000379   Thumb Code    16  serial.o(.text)
-    SER_GetChar                              0x00000389   Thumb Code    10  serial.o(.text)
-    __aeabi_uidiv                            0x00000399   Thumb Code     0  uidiv.o(.text)
-    __aeabi_uidivmod                         0x00000399   Thumb Code    44  uidiv.o(.text)
-    __aeabi_idiv                             0x000003c5   Thumb Code     0  idiv.o(.text)
-    __aeabi_idivmod                          0x000003c5   Thumb Code    40  idiv.o(.text)
-    __scatterload_copy                       0x000003ed   Thumb Code    14  handlers.o(i.__scatterload_copy)
-    __scatterload_null                       0x000003fb   Thumb Code     2  handlers.o(i.__scatterload_null)
+    sysinit                                  0x00000251   Thumb Code   134  sysinit.o(.text)
+    uart0_init                               0x000002f5   Thumb Code    68  uart.o(.text)
+    uart0_getchar                            0x00000339   Thumb Code    12  uart.o(.text)
+    uart0_putchar                            0x00000345   Thumb Code    10  uart.o(.text)
+    uart0_getchar_present                    0x0000034f   Thumb Code    10  uart.o(.text)
+    fputc                                    0x00000361   Thumb Code    22  retarget.o(.text)
+    fgetc                                    0x00000377   Thumb Code     8  retarget.o(.text)
+    ferror                                   0x0000037f   Thumb Code     6  retarget.o(.text)
+    _ttywrch                                 0x00000385   Thumb Code     8  retarget.o(.text)
+    _sys_exit                                0x0000038d   Thumb Code     2  retarget.o(.text)
+    SER_PutChar                              0x00000391   Thumb Code    16  serial.o(.text)
+    SER_GetChar                              0x000003a1   Thumb Code    10  serial.o(.text)
+    MCG_HIRC48                               0x000003b1   Thumb Code    44  mcg_lite.o(.text)
+    __scatterload_copy                       0x000003e9   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x000003f7   Thumb Code     2  handlers.o(i.__scatterload_null)
     cpu_identify                             0x00000411   Thumb Code   318  start.o(.text)
     start                                    0x0000054f   Thumb Code    22  start.o(.text)
     SystemInit                               0x00000565   Thumb Code     2  start.o(.text)
@@ -616,20 +615,24 @@ Image Symbol Table
     enter_vlls1                              0x00000f99   Thumb Code    46  smc.o(.text)
     enter_vlls0                              0x00000fc7   Thumb Code    98  smc.o(.text)
     enter_vlls0_nopor                        0x00001029   Thumb Code    90  smc.o(.text)
-    __aeabi_uldivmod                         0x00001095   Thumb Code    96  uldiv.o(.text)
-    __scatterload                            0x000010f5   Thumb Code    28  init.o(.text)
-    __scatterload_rt2                        0x000010f5   Thumb Code     0  init.o(.text)
-    __aeabi_llsl                             0x00001119   Thumb Code    32  llshl.o(.text)
-    _ll_shift_l                              0x00001119   Thumb Code     0  llshl.o(.text)
-    __aeabi_llsr                             0x00001139   Thumb Code    34  llushr.o(.text)
-    _ll_ushift_r                             0x00001139   Thumb Code     0  llushr.o(.text)
-    __0printf$8                              0x0000115d   Thumb Code    24  printf8.o(i.__0printf$8)
-    __1printf$8                              0x0000115d   Thumb Code     0  printf8.o(i.__0printf$8)
-    __2printf                                0x0000115d   Thumb Code     0  printf8.o(i.__0printf$8)
-    __ARM_common_switch8                     0x0000117d   Thumb Code    26  start.o(i.__ARM_common_switch8)
-    __scatterload_zeroinit                   0x00001197   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
-    Region$$Table$$Base                      0x00001618   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x00001638   Number         0  anon$$obj.o(Region$$Table)
+    __aeabi_uidiv                            0x00001095   Thumb Code     0  uidiv.o(.text)
+    __aeabi_uidivmod                         0x00001095   Thumb Code    44  uidiv.o(.text)
+    __aeabi_idiv                             0x000010c1   Thumb Code     0  idiv.o(.text)
+    __aeabi_idivmod                          0x000010c1   Thumb Code    40  idiv.o(.text)
+    __aeabi_uldivmod                         0x000010e9   Thumb Code    96  uldiv.o(.text)
+    __scatterload                            0x00001149   Thumb Code    28  init.o(.text)
+    __scatterload_rt2                        0x00001149   Thumb Code     0  init.o(.text)
+    __aeabi_llsl                             0x0000116d   Thumb Code    32  llshl.o(.text)
+    _ll_shift_l                              0x0000116d   Thumb Code     0  llshl.o(.text)
+    __aeabi_llsr                             0x0000118d   Thumb Code    34  llushr.o(.text)
+    _ll_ushift_r                             0x0000118d   Thumb Code     0  llushr.o(.text)
+    __0printf$8                              0x000011b1   Thumb Code    24  printf8.o(i.__0printf$8)
+    __1printf$8                              0x000011b1   Thumb Code     0  printf8.o(i.__0printf$8)
+    __2printf                                0x000011b1   Thumb Code     0  printf8.o(i.__0printf$8)
+    __ARM_common_switch8                     0x000011d1   Thumb Code    26  start.o(i.__ARM_common_switch8)
+    __scatterload_zeroinit                   0x000011eb   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    Region$$Table$$Base                      0x0000166c   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x0000168c   Number         0  anon$$obj.o(Region$$Table)
     data                                     0x20000000   Data           1  platinum.o(.data)
     i                                        0x20000001   Data           1  platinum.o(.data)
     mcg_clk_hz                               0x20000004   Data           4  sysinit.o(.data)
@@ -648,9 +651,9 @@ Memory Map of the image
 
   Image Entry point : 0x000000c1
 
-  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x00001654, Max: 0x00008000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x000016a8, Max: 0x00008000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Base: 0x00000000, Size: 0x00001638, Max: 0x00008000, ABSOLUTE)
+    Execution Region ER_IROM1 (Base: 0x00000000, Size: 0x0000168c, Max: 0x00008000, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -667,34 +670,35 @@ Memory Map of the image
     0x000000d4   0x00000130   Code   RO            1    .text               platinum.o
     0x00000204   0x00000028   Code   RO           65    .text               startup_mkl03z4.o
     0x0000022c   0x00000024   Code   RO          123    .text               io.o
-    0x00000250   0x0000008c   Code   RO          213    .text               sysinit.o
-    0x000002dc   0x0000006c   Code   RO          241    .text               uart.o
-    0x00000348   0x0000002e   Code   RO          265    .text               retarget.o
-    0x00000376   0x00000002   PAD
-    0x00000378   0x00000020   Code   RO          294    .text               serial.o
-    0x00000398   0x0000002c   Code   RO          380    .text               mc_p.l(uidiv.o)
-    0x000003c4   0x00000028   Code   RO          382    .text               mc_p.l(idiv.o)
-    0x000003ec   0x0000000e   Code   RO          686    i.__scatterload_copy  mc_p.l(handlers.o)
-    0x000003fa   0x00000002   Code   RO          687    i.__scatterload_null  mc_p.l(handlers.o)
-    0x000003fc   0x00000004   PAD
+    0x00000250   0x000000a4   Code   RO          213    .text               sysinit.o
+    0x000002f4   0x0000006c   Code   RO          241    .text               uart.o
+    0x00000360   0x0000002e   Code   RO          265    .text               retarget.o
+    0x0000038e   0x00000002   PAD
+    0x00000390   0x00000020   Code   RO          294    .text               serial.o
+    0x000003b0   0x00000038   Code   RO          309    .text               mcg_lite.o
+    0x000003e8   0x0000000e   Code   RO          686    i.__scatterload_copy  mc_p.l(handlers.o)
+    0x000003f6   0x00000002   Code   RO          687    i.__scatterload_null  mc_p.l(handlers.o)
+    0x000003f8   0x00000008   PAD
     0x00000400   0x00000010   Code   RO           64    .ARM.__at_0x400     startup_mkl03z4.o
     0x00000410   0x0000054a   Code   RO          190    .text               start.o
     0x0000095a   0x00000002   PAD
     0x0000095c   0x000001b0   Code   RO          229    .text               arm_cm0.o
     0x00000b0c   0x00000334   Code   RO          253    .text               rcm.o
     0x00000e40   0x00000254   Code   RO          365    .text               smc.o
-    0x00001094   0x00000060   Code   RO          659    .text               mc_p.l(uldiv.o)
-    0x000010f4   0x00000024   Code   RO          672    .text               mc_p.l(init.o)
-    0x00001118   0x00000020   Code   RO          674    .text               mc_p.l(llshl.o)
-    0x00001138   0x00000022   Code   RO          676    .text               mc_p.l(llushr.o)
-    0x0000115a   0x00000002   PAD
-    0x0000115c   0x00000020   Code   RO          591    i.__0printf$8       mc_p.l(printf8.o)
-    0x0000117c   0x0000001a   Code   RO          199    i.__ARM_common_switch8  start.o
-    0x00001196   0x0000000e   Code   RO          688    i.__scatterload_zeroinit  mc_p.l(handlers.o)
-    0x000011a4   0x00000428   Code   RO          598    i._printf_core      mc_p.l(printf8.o)
-    0x000015cc   0x00000020   Code   RO          599    i._printf_post_padding  mc_p.l(printf8.o)
-    0x000015ec   0x0000002c   Code   RO          600    i._printf_pre_padding  mc_p.l(printf8.o)
-    0x00001618   0x00000020   Data   RO          684    Region$$Table       anon$$obj.o
+    0x00001094   0x0000002c   Code   RO          380    .text               mc_p.l(uidiv.o)
+    0x000010c0   0x00000028   Code   RO          382    .text               mc_p.l(idiv.o)
+    0x000010e8   0x00000060   Code   RO          659    .text               mc_p.l(uldiv.o)
+    0x00001148   0x00000024   Code   RO          672    .text               mc_p.l(init.o)
+    0x0000116c   0x00000020   Code   RO          674    .text               mc_p.l(llshl.o)
+    0x0000118c   0x00000022   Code   RO          676    .text               mc_p.l(llushr.o)
+    0x000011ae   0x00000002   PAD
+    0x000011b0   0x00000020   Code   RO          591    i.__0printf$8       mc_p.l(printf8.o)
+    0x000011d0   0x0000001a   Code   RO          199    i.__ARM_common_switch8  start.o
+    0x000011ea   0x0000000e   Code   RO          688    i.__scatterload_zeroinit  mc_p.l(handlers.o)
+    0x000011f8   0x00000428   Code   RO          598    i._printf_core      mc_p.l(printf8.o)
+    0x00001620   0x00000020   Code   RO          599    i._printf_post_padding  mc_p.l(printf8.o)
+    0x00001640   0x0000002c   Code   RO          600    i._printf_pre_padding  mc_p.l(printf8.o)
+    0x0000166c   0x00000020   Data   RO          684    Region$$Table       anon$$obj.o
 
 
     Execution Region RW_IRAM1 (Base: 0x1ffffe00, Size: 0x00000000, Max: 0x00000200, ABSOLUTE)
@@ -721,20 +725,21 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-       432        258          0          0          0       1687   arm_cm0.o
-        36          4          0          0          0        744   io.o
-       304         40          0          2          0     108598   platinum.o
-       820        550          0          0          0        653   rcm.o
-        46          0          0          4          0       2902   retarget.o
-        32          6          0          0          0        670   serial.o
-       596         18          0          0          0       2442   smc.o
-      1380        996          0          0          0       1689   start.o
-        56         30        192          0        256        920   startup_mkl03z4.o
-       140         24          0         20          0        953   sysinit.o
-       108          8          0          0          0       1259   uart.o
+       432        258          0          0          0       1707   arm_cm0.o
+        36          4          0          0          0        756   io.o
+        56         12          0          0          0        593   mcg_lite.o
+       304         38          0          2          0     108638   platinum.o
+       820        550          0          0          0        665   rcm.o
+        46          0          0          4          0       2934   retarget.o
+        32          6          0          0          0        682   serial.o
+       596         18          0          0          0       2450   smc.o
+      1380        996          0          0          0       1713   start.o
+        56         30        192          0        256        940   startup_mkl03z4.o
+       164         30          0         20          0       1017   sysinit.o
+       108          8          0          0          0       1267   uart.o
 
     ----------------------------------------------------------------------
-      3954       1934        224         28        260     122517   Object Totals
+      4034       1950        224         28        260     123362   Object Totals
          0          0         32          0          0          0   (incl. Generated)
          4          0          0          2          4          0   (incl. Padding)
 
@@ -760,8 +765,8 @@ Image component sizes
         96          0          0          0          0         84   uldiv.o
 
     ----------------------------------------------------------------------
-      1510         68          0          0          0        756   Library Totals
-         6          0          0          0          0          0   (incl. Padding)
+      1514         68          0          0          0        756   Library Totals
+        10          0          0          0          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -770,7 +775,7 @@ Image component sizes
       1504         68          0          0          0        756   mc_p.l
 
     ----------------------------------------------------------------------
-      1510         68          0          0          0        756   Library Totals
+      1514         68          0          0          0        756   Library Totals
 
     ----------------------------------------------------------------------
 
@@ -779,15 +784,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      5464       2002        224         28        260     122413   Grand Totals
-      5464       2002        224         28        260     122413   ELF Image Totals
-      5464       2002        224         28          0          0   ROM Totals
+      5548       2018        224         28        260     123214   Grand Totals
+      5548       2018        224         28        260     123214   ELF Image Totals
+      5548       2018        224         28          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 5688 (   5.55kB)
+    Total RO  Size (Code + RO Data)                 5772 (   5.64kB)
     Total RW  Size (RW Data + ZI Data)               288 (   0.28kB)
-    Total ROM Size (Code + RO Data + RW Data)       5716 (   5.58kB)
+    Total ROM Size (Code + RO Data + RW Data)       5800 (   5.66kB)
 
 ==============================================================================
 

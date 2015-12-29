@@ -27,7 +27,7 @@
 #define MCG_IRC2M           2000000
 #define MCG_IRC48M          48000000
   /* Serial Port Info */
-//#define MCG_HIRC_MODE_EN		0
+#define MCG_HIRC_MODE_EN		
 
 
 /* Serial Port Info */

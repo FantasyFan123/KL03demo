@@ -71,9 +71,10 @@ int main (void)
 void uart0_lpconfigure(void)
 {
 		MCG_C1 |= MCG_C1_IRCLKEN_MASK | MCG_C1_IREFSTEN_MASK;
-		mcg_clk_hz = MCG_IRC8M;
-		SIM_SOPT2 |= SIM_SOPT2_UART0SRC(3); // select the MCGIRCLK as UART0 clock source
-		uart0_clk_khz = MCG_IRC8M;
+		MCG_C2 &= ~MCG_C2_IRCS_MASK;														//when use IRC8M this should be commented
+		SIM_SOPT2 |= SIM_SOPT2_UART0SRC(3); 										// select the MCGIRCLK as UART0 clock source
+		uart0_clk_khz = MCG_IRC2M;
+		//uart0_clk_khz = MCG_IRC8M;
 		uart0_init (TERM_PORT,uart0_clk_khz,TERMINAL_BAUD);  
 }
 void PORTB_IRQHandler(void)
