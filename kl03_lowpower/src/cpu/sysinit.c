@@ -69,11 +69,11 @@ void sysinit (void)
 		uart0_clk_khz = mcg_clk_hz;		 
             
     /* configure LPUART pin mux to PTB3,PTB4 */   // wenxue
-		PORTB_PCR3 = PORT_PCR_MUX(0x3); 
-		PORTB_PCR4 = PORT_PCR_MUX(0x3); 
+		//PORTB_PCR3 = PORT_PCR_MUX(0x3); 
+		//PORTB_PCR4 = PORT_PCR_MUX(0x3); 
     
     /* configure LPUART pin mux to PTB1,PTB2 */   // wenxue
-			//PORTB_PCR1 = PORT_PCR_MUX(0x2); 
-			//PORTB_PCR2 = PORT_PCR_MUX(0x2);    
+		PORTB_PCR1 = PORT_PCR_MUX(0x2); 
+		PORTB_PCR2 = PORT_PCR_MUX(0x2);    
 		uart0_init (TERM_PORT,uart0_clk_khz,TERMINAL_BAUD);  		
 }

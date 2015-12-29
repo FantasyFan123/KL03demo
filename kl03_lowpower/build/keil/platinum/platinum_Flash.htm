@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\platinum_Flash.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\platinum_Flash.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050169: Last Updated: Tue Dec 29 09:53:52 2015
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050169: Last Updated: Tue Dec 29 10:36:45 2015
 <BR><P>
 <H3>Maximum Stack Usage =         76 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -94,7 +94,7 @@ Global Symbols
 
 <P><STRONG><a name="[54]"></a>__rt_final_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry11a.o(.ARM.Collect$$$$0000000F))
 
-<P><STRONG><a name="[2d]"></a>uart0_lpconfigure</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, platinum.o(.text))
+<P><STRONG><a name="[2d]"></a>uart0_lpconfigure</STRONG> (Thumb, 40 bytes, Stack size 8 bytes, platinum.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = uart0_lpconfigure &rArr; uart0_init &rArr; __aeabi_idivmod &rArr; __aeabi_uidivmod
 </UL>
 <BR>[Calls]<UL><LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart0_init
@@ -356,9 +356,11 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sysinit
 </UL>
 
-<P><STRONG><a name="[57]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
+<P><STRONG><a name="[49]"></a>__aeabi_llsl</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, llshl.o(.text), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
+</UL>
 
-<P><STRONG><a name="[58]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
+<P><STRONG><a name="[57]"></a>_ll_shift_l</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, llshl.o(.text), UNUSED)
 
 <P><STRONG><a name="[40]"></a>cpu_identify</STRONG> (Thumb, 318 bytes, Stack size 8 bytes, start.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = cpu_identify &rArr; __2printf
@@ -386,13 +388,13 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_mkl03z4.o(.text)
 </UL>
-<P><STRONG><a name="[59]"></a>flash_identify</STRONG> (Thumb, 1012 bytes, Stack size 12 bytes, start.o(.text), UNUSED)
+<P><STRONG><a name="[58]"></a>flash_identify</STRONG> (Thumb, 1012 bytes, Stack size 12 bytes, start.o(.text), UNUSED)
 
-<P><STRONG><a name="[5a]"></a>stop</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, arm_cm0.o(.text), UNUSED)
+<P><STRONG><a name="[59]"></a>stop</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, arm_cm0.o(.text), UNUSED)
 
-<P><STRONG><a name="[5b]"></a>wait</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, arm_cm0.o(.text), UNUSED)
+<P><STRONG><a name="[5a]"></a>wait</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, arm_cm0.o(.text), UNUSED)
 
-<P><STRONG><a name="[5c]"></a>write_vtor</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, arm_cm0.o(.text), UNUSED)
+<P><STRONG><a name="[5b]"></a>write_vtor</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, arm_cm0.o(.text), UNUSED)
 
 <P><STRONG><a name="[2f]"></a>enable_irq</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, arm_cm0.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = enable_irq &rArr; __2printf
@@ -418,17 +420,17 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;start
 </UL>
 
-<P><STRONG><a name="[5d]"></a>sleep</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, smc.o(.text), UNUSED)
+<P><STRONG><a name="[5c]"></a>sleep</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, smc.o(.text), UNUSED)
 
-<P><STRONG><a name="[5e]"></a>deepsleep</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, smc.o(.text), UNUSED)
+<P><STRONG><a name="[5d]"></a>deepsleep</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, smc.o(.text), UNUSED)
 
-<P><STRONG><a name="[5f]"></a>enter_wait</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, smc.o(.text), UNUSED)
+<P><STRONG><a name="[5e]"></a>enter_wait</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, smc.o(.text), UNUSED)
 
-<P><STRONG><a name="[60]"></a>enter_stop</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, smc.o(.text), UNUSED)
+<P><STRONG><a name="[5f]"></a>enter_stop</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, smc.o(.text), UNUSED)
 
-<P><STRONG><a name="[61]"></a>enter_vlpr</STRONG> (Thumb, 76 bytes, Stack size 12 bytes, smc.o(.text), UNUSED)
+<P><STRONG><a name="[60]"></a>enter_vlpr</STRONG> (Thumb, 76 bytes, Stack size 12 bytes, smc.o(.text), UNUSED)
 
-<P><STRONG><a name="[62]"></a>exit_vlpr</STRONG> (Thumb, 44 bytes, Stack size 0 bytes, smc.o(.text), UNUSED)
+<P><STRONG><a name="[61]"></a>exit_vlpr</STRONG> (Thumb, 44 bytes, Stack size 0 bytes, smc.o(.text), UNUSED)
 
 <P><STRONG><a name="[30]"></a>enter_vlps</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, smc.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = enter_vlps
@@ -436,17 +438,17 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[63]"></a>enter_vlls3</STRONG> (Thumb, 46 bytes, Stack size 8 bytes, smc.o(.text), UNUSED)
+<P><STRONG><a name="[62]"></a>enter_vlls3</STRONG> (Thumb, 46 bytes, Stack size 8 bytes, smc.o(.text), UNUSED)
 
-<P><STRONG><a name="[64]"></a>enter_vlls2</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, smc.o(.text), UNUSED)
+<P><STRONG><a name="[63]"></a>enter_vlls2</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, smc.o(.text), UNUSED)
 
-<P><STRONG><a name="[65]"></a>enter_vlls1</STRONG> (Thumb, 46 bytes, Stack size 8 bytes, smc.o(.text), UNUSED)
+<P><STRONG><a name="[64]"></a>enter_vlls1</STRONG> (Thumb, 46 bytes, Stack size 8 bytes, smc.o(.text), UNUSED)
 
-<P><STRONG><a name="[66]"></a>enter_vlls0</STRONG> (Thumb, 98 bytes, Stack size 8 bytes, smc.o(.text), UNUSED)
+<P><STRONG><a name="[65]"></a>enter_vlls0</STRONG> (Thumb, 98 bytes, Stack size 8 bytes, smc.o(.text), UNUSED)
 
-<P><STRONG><a name="[67]"></a>enter_vlls0_nopor</STRONG> (Thumb, 90 bytes, Stack size 8 bytes, smc.o(.text), UNUSED)
+<P><STRONG><a name="[66]"></a>enter_vlls0_nopor</STRONG> (Thumb, 90 bytes, Stack size 8 bytes, smc.o(.text), UNUSED)
 
-<P><STRONG><a name="[68]"></a>__aeabi_uidiv</STRONG> (Thumb, 0 bytes, Stack size 12 bytes, uidiv.o(.text), UNUSED)
+<P><STRONG><a name="[67]"></a>__aeabi_uidiv</STRONG> (Thumb, 0 bytes, Stack size 12 bytes, uidiv.o(.text), UNUSED)
 
 <P><STRONG><a name="[3a]"></a>__aeabi_uidivmod</STRONG> (Thumb, 44 bytes, Stack size 12 bytes, uidiv.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = __aeabi_uidivmod
@@ -455,7 +457,7 @@ Global Symbols
 <LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sysinit
 </UL>
 
-<P><STRONG><a name="[69]"></a>__aeabi_idiv</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, idiv.o(.text), UNUSED)
+<P><STRONG><a name="[68]"></a>__aeabi_idiv</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, idiv.o(.text), UNUSED)
 
 <P><STRONG><a name="[39]"></a>__aeabi_idivmod</STRONG> (Thumb, 40 bytes, Stack size 16 bytes, idiv.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = __aeabi_idivmod &rArr; __aeabi_uidivmod
@@ -479,25 +481,19 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[2b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_main_scatterload
 </UL>
 
-<P><STRONG><a name="[6a]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
-
-<P><STRONG><a name="[49]"></a>__aeabi_llsl</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, llshl.o(.text), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
-</UL>
-
-<P><STRONG><a name="[6b]"></a>_ll_shift_l</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, llshl.o(.text), UNUSED)
+<P><STRONG><a name="[69]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
 
 <P><STRONG><a name="[48]"></a>__aeabi_llsr</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, llushr.o(.text), UNUSED)
 <BR><BR>[Called By]<UL><LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
 </UL>
 
-<P><STRONG><a name="[6c]"></a>_ll_ushift_r</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, llushr.o(.text), UNUSED)
+<P><STRONG><a name="[6a]"></a>_ll_ushift_r</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, llushr.o(.text), UNUSED)
 
 <P><STRONG><a name="[4b]"></a>__0printf$8</STRONG> (Thumb, 24 bytes, Stack size 24 bytes, printf8.o(i.__0printf$8), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
 </UL>
 
-<P><STRONG><a name="[6d]"></a>__1printf$8</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printf8.o(i.__0printf$8), UNUSED)
+<P><STRONG><a name="[6b]"></a>__1printf$8</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printf8.o(i.__0printf$8), UNUSED)
 
 <P><STRONG><a name="[42]"></a>__2printf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printf8.o(i.__0printf$8))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = __2printf
@@ -514,6 +510,10 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cpu_identify
 </UL>
+
+<P><STRONG><a name="[6c]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
+
+<P><STRONG><a name="[6d]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
 
 <P><STRONG><a name="[6e]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
 <P>
