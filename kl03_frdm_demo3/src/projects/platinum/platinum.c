@@ -143,8 +143,9 @@ void TPM_init(void)
 		TPM0_CNT = 0;
 		TPM0_MOD = 48000;
 		
+		TPM0_SC |= TPM_SC_PS(7);						//should be configed before config TPM0_C0SC
 		TPM0_SC = TPM_SC_TOIE_MASK|TPM_SC_CMOD(1);
-		TPM0_SC |= TPM_SC_PS(0);						//should be configed before config TPM0_C0SC
+		
 		TPM0_C0SC = TPM_CnSC_MSB_MASK| TPM_CnSC_ELSB_MASK;
 		TPM0_C0V = 0;
 		
@@ -163,7 +164,7 @@ void PORTB_IRQHandler(void)
 void SysTick_Handler(void)
 {
 	uint8 i; 
-	GPIO_TOGGLE(MKL_PORTB,11);
+	//GPIO_TOGGLE(MKL_PORTB,11);
 	i = SYST_CSR;																/*∂¡SYST_CSR,«ÂCOUNTFLAG*/
 
 }
@@ -195,5 +196,6 @@ void TPM0_IRQHandler(void)
 	if(TPM0_SC & TPM_SC_TOF_MASK)
 	{
 		TPM0_SC |= TPM_SC_TOF_MASK;
+		GPIO_TOGGLE(MKL_PORTB,11);
 	}
 }

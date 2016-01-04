@@ -23,7 +23,7 @@
 #define CLK0_FREQ_HZ        32768
 #define CLK0_TYPE           CRYSTAL
 
-#define MCG_IRC8M           9000000
+#define MCG_IRC8M           8000000
 #define MCG_IRC2M           2000000
 #define MCG_IRC48M          48000000
   /* Serial Port Info */
